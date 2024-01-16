@@ -2,5 +2,5 @@
     <div class="logoHeader">
         <?= insert_logo() ?>
     </div>
-    
+    <? insertNavBarMenu(); ?>
 </nav>
