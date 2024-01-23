@@ -12,7 +12,7 @@ require_once("inc/modules/inc_global_media.php");
     <link rel="stylesheet" href="inc/styles/main_style.css">
 </head>
 <body>
-    
+<!-- Adding navbar -->
 <? require_once("inc/sections/nav_bar.php"); ?>
 
 </body>
