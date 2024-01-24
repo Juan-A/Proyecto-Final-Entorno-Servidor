@@ -3,8 +3,7 @@
         <?= insert_logo() ?>
     </div>
     <? insertNavBarMenu(); ?>
-    <div >
+    <div>
     <a href="login.php" class="loginNavButton"><i class='bx bx-user-circle bx-tada-hover' style="font-size: 30px;" ></i> Login</a>
-    
     </div>
 </nav>
