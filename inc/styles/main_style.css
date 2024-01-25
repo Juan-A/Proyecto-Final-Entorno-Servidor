@@ -5,6 +5,9 @@
     margin: 0;
     padding: 0;
 }
+html, body{
+    height: 100%;
+}
 nav.main{
     display: flex;
     width: 100%;
@@ -15,6 +18,7 @@ nav.main{
     gap: 0.5rem;
     border-bottom: solid 1px #aaa;
     background-color: #eee;
+    height: 12%;
 }
 .navButton{
     display: inline-block;
@@ -26,6 +30,9 @@ nav.main{
     text-decoration: none;
     color: #555;
 }
+.navButton{
+    background-color:blue;
+}
 
 .loginNavButton:link{
     padding: 0.5rem;
@@ -36,3 +43,12 @@ nav.main{
     align-items: center;
     text-decoration: none;
 }
+main{
+    background-color: white;
+    height: 78%;
+}
+footer{
+    height: 10%;
+    background-color: #70A288;
+}
+
