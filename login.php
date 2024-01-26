@@ -19,32 +19,22 @@ require_once("inc/modules/inc_global_media.php");
     <? require_once("inc/sections/nav_bar.php"); ?>
     <!--Login box-->
     <main>
-    <div id="loginContainer">
-        <form action="login.php" method="POST">
-        <fieldset>
-            <legend>Datos de acceso</legend>
-            <table>
-                <tr>
-                    <td>Usuario / Correo:</td>
-                    <td><input type="text" name="username"></td>
-                </tr>
-                <tr>
-                    <td>Contraseña:</td>
-                    <td><input type="password" name="password"></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><button type="submit">Acceder</button></td>
-                </tr>
-            </table>
-        </fieldset>
-        </form>
-    </div>
+        <div class="loginContainer">
+            <form action="login.php" method="POST">
+                <fieldset>
+                    <legend>Datos de acceso</legend>
+                    <div class="loginFields">
+                            <span>Usuario / Correo:</span>
+                            <input type="text" name="username">
+                            <span>Contraseña:</span>
+                            <input type="password" name="password">
+                            <button type="submit">Acceder</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
     </main>
-    <footer>
-        <hr>
-        <hr>
-        Footer example.
-    </footer>
+    <? require_once("inc/sections/footer.php"); ?>
 </body>
 
 </html>
