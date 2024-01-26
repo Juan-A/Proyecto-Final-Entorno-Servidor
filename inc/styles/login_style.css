@@ -1,0 +1,38 @@
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.loginContainer form {
+    height: 50%;
+    width: 25%;
+    min-width: 350px;
+}
+
+.loginContainer fieldset {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.loginFields {
+    width: 65%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 250px;
+}
+.loginFields button {
+    margin-top: 20px;
+    height: 30px;
+    width: 150px;
+    align-self: center;
+}
