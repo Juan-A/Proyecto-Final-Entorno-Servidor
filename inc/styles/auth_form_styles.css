@@ -1,4 +1,4 @@
-.loginContainer {
+.authContainer, .register {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,13 +6,13 @@
     width: 100%;
 }
 
-.loginContainer form {
-    height: 50%;
+.authContainer form {
+    height: 55%;
     width: 25%;
     min-width: 350px;
 }
 
-.loginContainer fieldset {
+.authContainer fieldset {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -23,7 +23,8 @@
     padding: 20px;
 }
 
-.loginFields {
+
+.authFields {
     width: 65%;
     height: 50%;
     display: flex;
@@ -31,7 +32,24 @@
     justify-content: space-around;
     max-width: 250px;
 }
-.loginFields button {
+.errorMessage{
+    padding: 5px;
+    border: 2px solid red;
+    background-color: salmon;
+    border-radius: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    
+    
+}
+[hidden]{
+    display: none;
+}
+.errorMessage .bx{
+ font-size: 25px;
+}
+.formBtn{
     margin-top: 20px;
     height: 30px;
     width: 150px;
