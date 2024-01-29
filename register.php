@@ -1,6 +1,20 @@
 <?
 require_once("inc/modules/inc_global.php");
 require_once("inc/modules/inc_global_media.php");
+
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+    $user = $_POST["username"];
+    $name = $_POST["name"];
+    $surname = $_POST["surname"];
+    $mail = $_POST["mail"];
+    $password = encryptPassword($_POST["password"]);
+
+    //Fits all the data in an array
+    $data = [$mail,$password,$user,0,$name,$surname];
+    if(register($data)){
+    echo "BIEN";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
