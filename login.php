@@ -11,7 +11,7 @@ require_once("inc/modules/inc_global_media.php");
     <!-- este título se obtiene desde la base de datos -->
     <title><?= siteName() ?></title>
     <link rel="stylesheet" href="inc/styles/main_style.css">
-    <link rel="stylesheet" href="inc/styles/login_style.css">
+    <link rel="stylesheet" href="inc/styles/auth_form_styles.css">
 </head>
 
 <body>
@@ -19,16 +19,16 @@ require_once("inc/modules/inc_global_media.php");
     <? require_once("inc/sections/nav_bar.php"); ?>
     <!--Login box-->
     <main>
-        <div class="loginContainer">
+        <div class="authContainer">
             <form action="login.php" method="POST">
                 <fieldset>
                     <legend>Datos de acceso</legend>
-                    <div class="loginFields">
+                    <div class="authFields">
                             <span>Usuario / Correo:</span>
                             <input type="text" name="username">
                             <span>Contraseña:</span>
                             <input type="password" name="password">
-                            <button type="submit">Acceder</button>
+                            <button type="submit" class="formBtn">Acceder</button>
                     </div>
                 </fieldset>
             </form>
