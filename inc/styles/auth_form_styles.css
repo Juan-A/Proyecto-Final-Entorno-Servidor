@@ -7,7 +7,7 @@
 }
 
 .authContainer form {
-    height: 55%;
+    height: fit-content;
     width: 25%;
     min-width: 350px;
 }

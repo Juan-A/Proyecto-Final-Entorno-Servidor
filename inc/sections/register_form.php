@@ -5,7 +5,7 @@
                 <legend>Datos de acceso</legend>
                 <div class="authFields">
                     <span>Usuario / nick:</span>
-                    <input type="text" name="username">
+                    <input type="text" name="username" id="username">
                     <span>Nombre:</span>
                     <input type="text" name="name">
                     <span>Apellidos:</span>
