@@ -22,3 +22,11 @@ function encryptPassword($plainpassword){
     ];
     return password_hash($plainpassword, PASSWORD_BCRYPT, $options);
 }
+function userExists(){
+    $queryNickname = "SELECT user_email,user_nickname FROM db_users WHERE user_nickname = :nickname ;";
+    $queryMail = "SELECT user_email,user_nickname FROM db_users WHERE user_email = :email";
+    $preQueryNickname = db()->prepare($$queryNickname);
+    $preQueryNickname->bindParam(":nickname","juanhcxd");
+    $preQueryMail = db()->prepare($$queryMail);
+
+}
