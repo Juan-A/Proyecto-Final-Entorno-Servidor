@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     <title><?= siteName() ?></title>
     <link rel="stylesheet" href="inc/styles/main_style.css">
     <link rel="stylesheet" href="inc/styles/auth_form_styles.css">
-    <script defer src="inc/modules/auth/samePassword.js"></script>
+    <script defer src="inc/modules/auth/registerFunctions.js"></script>
 </head>
 
 <body>
