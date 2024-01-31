@@ -30,6 +30,8 @@ require_once("inc/modules/inc_global_media.php");
                             <input type="password" name="password">
                             <button type="submit" class="formBtn">Acceder</button>
                     </div>
+                    <br>
+                    <a href="./register.php" class="buttonOne" id="nonRegisteredYet"> <i class='bx bx-user-plus bx-tada-hover' ></i> ¿Aún sin usuario?</a>
                 </fieldset>
             </form>
         </div>
