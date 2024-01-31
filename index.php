@@ -1,5 +1,5 @@
 <?
-
+session_start();
 require_once("inc/modules/inc_global.php");
 require_once("inc/modules/inc_global_media.php");
 ?>
