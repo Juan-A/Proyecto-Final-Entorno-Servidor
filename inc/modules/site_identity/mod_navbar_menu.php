@@ -4,7 +4,7 @@ function insertNavBarMenu(){
     $menuItems = getMenuItems();
  //   print_r($menuItems);
     foreach($menuItems as $item){
-       echo "<a class='navButton' href='".$item[2]."'>".$item[1]."</a>";
+       echo "<a class='buttonOne' href='".$item[2]."'>".$item[1]."</a>";
     }
 }
 function getMenuItems(){
