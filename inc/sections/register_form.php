@@ -7,11 +7,11 @@
                     <span>Usuario / nick:</span>
                     <input type="text" name="username" id="username">
                     <span>Nombre:</span>
-                    <input type="text" name="name">
+                    <input type="text" name="name" id="name">
                     <span>Apellidos:</span>
-                    <input type="text" name="surname">
+                    <input type="text" name="surname" id="surname">
                     <span>Correo electronico:</span>
-                    <input type="text" name="mail">
+                    <input type="text" name="mail" id="mail">
                     <span>Contraseña:</span>
                     <input type="password" name="password" id="password">
                     <span>Confirmación de contraseña:</span>

@@ -14,7 +14,14 @@ function userIsValid(){
     return true
 
 }
+function filledAll(){
+    let password = document.querySelector("#password").value.length===0
+    let passwordConfirm = document.querySelector("#passwordConfirm").value.length===0
+    let user = document.querySelector("#username").value.length===0;
+    let name = document.querySelector("#name").value.length===0
+}
 
+document.querySelector("#regButton").disabled=true;
 document.querySelector("#passwordConfirm").addEventListener("keyup",(event, elemento) => {
     if(!verifySame()){
         document.querySelector("#regButton").disabled = true;
