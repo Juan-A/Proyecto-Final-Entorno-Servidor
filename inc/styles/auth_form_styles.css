@@ -55,3 +55,6 @@
     width: 150px;
     align-self: center;
 }
+a#nonRegisteredYet > i{
+    font-size: 20px;
+}
