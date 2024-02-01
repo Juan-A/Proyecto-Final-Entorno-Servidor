@@ -1,12 +1,13 @@
 <?
 function handleMessage(){
+    
     if(isset($_SESSION["message"])){
         $messageArray=$_SESSION["message"];
-        foreach ($messageArray as $message => $status) {
-            if($status==1){
-                echo "<span class='error'>".$message."</span>";
-            }else if($status==0){
-                echo "<span class='success'>".$message."</span>";
+        foreach ($messageArray as $key => $message) {
+            if($message[1]==1){
+                echo "<div id='message'><span class='error'>".$message[0]."</span></div>";
+            }else if($message[1]==0){
+                echo "<div id='message'><span class='success'>".$message[0]."</span></div>";
             }
         }
         
