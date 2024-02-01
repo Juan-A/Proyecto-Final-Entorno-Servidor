@@ -11,7 +11,6 @@ function validateLogin($user, $password)
     if ($preQuery->execute() && $preQuery->rowCount() >= 1) {
         $userData = $preQuery->fetch();
         if (password_verify($password, $userData["user_password"])) {
-            session_start();
             $_SESSION["user_role"] = $userData["user_role"];
             $_SESSION["user_name"] = $userData["user_name"];
             $_SESSION["user_surname"] = $userData["user_surname"];
