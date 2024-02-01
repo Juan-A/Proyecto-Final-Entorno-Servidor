@@ -8,12 +8,21 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $surname = $_POST["surname"];
     $mail = $_POST["mail"];
     $password = encryptPassword($_POST["password"]);
-
-    //Fits all the data in an array
-    $data = [$mail,$password,$user,0,$name,$surname];
-    if(register($data)){
-    echo "BIEN";
+    if(empty($user) || empty($name) || empty($surname) || empty($mail) || empty($password)){
+        //Stores the error message in an array, [message,status] -> status 0: OK, status 1: FAIL
+        $_SESSION["message"] = ["Error al registrar el usuario, revise que todos los campos han sido rellenados.",1];
+    }else{
+        //Fits all the data in an array
+        $data = [$mail,$password,$user,0,$name,$surname];
+        try{
+            register($data);
+            header("Location: login.php");
+        }catch(PDOException $e){
+            $_SESSION["message"] = ["Error durante el registro, inténtelo de nuevo más tarde.",1];
+        }
     }
+    
+    
 }
 ?>
 <!DOCTYPE html>
@@ -32,6 +41,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 <body>
     <!-- Adding navbar -->
     <? require_once("inc/sections/nav_bar.php"); ?>
+    <? handleMessage(); ?>
     <!--Register box-->
     <? require_once("inc/sections/register_form.php"); ?>
     <!--Footer-->

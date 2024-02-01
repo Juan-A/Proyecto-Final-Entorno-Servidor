@@ -23,6 +23,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <body>
     <!-- Adding navbar -->
     <? require_once("inc/sections/nav_bar.php"); ?>
+    <!-- Handles the current message, if exists -->
+    <div class="message"><?=handleMessage()?></div>
     <!--Login box-->
     <main>
         <div class="authContainer">
