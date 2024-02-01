@@ -9,8 +9,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $mail = $_POST["mail"];
     $password = encryptPassword($_POST["password"]);
     if(empty($user) || empty($name) || empty($surname) || empty($mail) || empty($password)){
-        //Stores the error message in an array, [message,status] -> status 0: OK, status 1: FAIL
-        $_SESSION["message"] = ["Error al registrar el usuario, revise que todos los campos han sido rellenados.",1];
+        addMessage("Error al registrar el usuario, revise que todos los campos han sido rellenados.",1);
     }else{
         //Fits all the data in an array
         $data = [$mail,$password,$user,0,$name,$surname];
@@ -18,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             register($data);
             header("Location: login.php");
         }catch(PDOException $e){
-            $_SESSION["message"] = ["Error durante el registro, inténtelo de nuevo más tarde.",1];
+            addMessage("Error durante el registro, inténtelo de nuevo más tarde.",1);
         }
     }
     

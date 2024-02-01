@@ -10,3 +10,12 @@ function handleMessage(){
     }
     unset($_SESSION["message"]);
 }
+function addMessage($message,$status){
+    /*Stores the error message in an array, [message,status]:
+    Status codes:
+    0 -> Success
+    1-> Error
+    */
+    $_SESSION["message"] =[];
+    array_push($_SESSION["message"],[$message,$status]);
+}

@@ -5,7 +5,9 @@ require_once("inc/modules/inc_global_media.php");
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(validateLogin($_POST["username"],$_POST["password"])){
         header("Location: ./index.php");
-    };
+    }else{
+        addMessage("Error, la contraseña o usuario son incorrecto(s).",1);
+    }
 }
 ?>
 <!DOCTYPE html>
