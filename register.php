@@ -7,10 +7,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $name = $_POST["name"];
     $surname = $_POST["surname"];
     $mail = $_POST["mail"];
-    $password = encryptPassword($_POST["password"]);
+    $password = $_POST["password"];
+
     if(empty($user) || empty($name) || empty($surname) || empty($mail) || empty($password)){
         addMessage("Error al registrar el usuario, revise que todos los campos han sido rellenados.",1);
     }else{
+        $password = encryptPassword($_POST["password"]);
         //Fits all the data in an array
         $data = [$mail,$password,$user,0,$name,$surname];
         try{
