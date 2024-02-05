@@ -52,15 +52,20 @@ footer{
     height: 10%;
     background-color: #70A288;
 }
-div#message{
+#message{
     display: flex;
     align-content: center;
     justify-content: center;
+    margin: auto;
+    width: 40%;
+    min-width: fit-content;
+    text-align: center;
 }
 #message:has(.error){
     background-color: coral;
     border: 2px solid red;
     font-weight: bold;
+    
 }
 #message:has(.success){
     background-color: greenyellow;
