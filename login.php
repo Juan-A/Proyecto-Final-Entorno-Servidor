@@ -4,7 +4,10 @@ require_once("inc/modules/inc_global_media.php");
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(validateLogin($_POST["username"],$_POST["password"])){
+        $name = $_SESSION["user_name"];
+        addMessage("Bienvenido $name! Te has logueado correctamente.",0);
         header("Location: ./index.php");
+        exit();
     }else{
         addMessage("Error, la contraseña o usuario son incorrecto(s).",1);
     }
@@ -26,7 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <!-- Adding navbar -->
     <? require_once("inc/sections/nav_bar.php"); ?>
     <!-- Handles the current message, if exists -->
-    <? handleMessage(); ?>
+    <? handleMessage() ?>
     <!--Login box-->
     <main>
         <div class="authContainer">

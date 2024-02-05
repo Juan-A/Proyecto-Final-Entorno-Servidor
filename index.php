@@ -14,6 +14,7 @@ require_once("inc/modules/inc_global_media.php");
 <body>
 <!-- Adding navbar -->
 <? require_once("inc/sections/nav_bar.php"); ?>
+<? handleMessage() ?>
 
 </body>
 </html>
