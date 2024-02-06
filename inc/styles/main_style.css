@@ -33,13 +33,17 @@ nav.main{
 }
 
 .loginNavButton:link{
+    display: inline-block;
     padding: 0.5rem;
-    border: 1px solid black;
     border-radius: 0.2rem;
+    border: solid 1px #555;
+    text-align: center;
+    text-decoration: none;
     color: #555;
     display: flex;
     align-items: center;
     text-decoration: none;
+    height: 2.5rem;
 }
 .loginNavButton:visited{
     color: #555;
