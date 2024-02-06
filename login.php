@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <!--Login box-->
     <main>
         <div class="authContainer">
-            <form action="login.php" method="POST">
+            <form action="login.php" method="POST" class="loginForm">
                 <fieldset>
                     <legend>Datos de acceso</legend>
                     <div class="authFieldsContainer">
@@ -41,7 +41,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <input type="text" name="username">
                             <span>Contraseña:</span>
                             <input type="password" name="password">
-                            <button type="submit" class="formBtn">Acceder</button>
+                            <br>
+                            <a href="login.php" onclick="loginSubmit()" class="buttonOne">Acceder</a>
+                            <button type="submit" hidden></button>
                     </div>
                     <br>
                     <a href="./register.php" class="buttonOne" id="nonRegisteredYet"> <i class='bx bx-user-plus bx-tada-hover' ></i> ¿Aún sin usuario?</a>
@@ -50,6 +52,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </main>
     <? require_once("inc/sections/footer.php"); ?>
+    <script>
+        function loginSubmit(){
+            document.querySelector(".loginForm").submit();
+        }
+    </script>
 </body>
 
 </html>
