@@ -3,7 +3,7 @@
         <form action="register.php" method="POST">
             <fieldset>
                 <legend>Datos de acceso</legend>
-                <div class="authFields">
+                <div class="authFieldsContainer">
                     <span>Usuario / nick:</span>
                     <input type="text" name="username" id="username" required>
                     <span>Nombre:</span>

@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         header("Location: ./index.php");
         exit();
     }else{
-        addMessage("Error, la contraseña o usuario son incorrecto(s).",1);
+        addMessage("Los datos introducidos son incorrectos.",1);
     }
 }
 ?>
@@ -36,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <form action="login.php" method="POST">
                 <fieldset>
                     <legend>Datos de acceso</legend>
-                    <div class="authFields">
+                    <div class="authFieldsContainer">
                             <span>Usuario / Correo:</span>
                             <input type="text" name="username">
                             <span>Contraseña:</span>
