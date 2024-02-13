@@ -1,66 +1,62 @@
 .authContainer, .register {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-}
-
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      width: 100%;
+  }
 .authContainer form {
-    height: fit-content;
-    width: 25%;
-    min-width: 350px;
-}
-
+      height: fit-content;
+      min-width: 350px;
+      width: 25%;
+  }
 .authContainer fieldset {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-}
+      align-items: center;
+      border-radius: 10px;
+      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      padding: 20px;
+  }
 .authFieldsContainer {
-    width: 65%;
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    max-width: 250px;
-}
+      display: flex;
+      flex-direction: column;
+      height: 50%;
+      justify-content: space-around;
+      max-width: 250px;
+      width: 65%;
+  }
 .authFieldsContainer input{
-    font-size: 16px;
-}
+      font-size: 16px;
+  }
 .errorMessage{
-    padding: 5px;
-    border: 2px solid red;
-    background-color: salmon;
-    border-radius: 10px;
-    margin: 10px;
-    display: flex;
-    align-items: center;  
-    
-}
+      align-items: center;
+      background-color: salmon;
+      border: 2px solid red;
+      border-radius: 10px;
+      display: flex;
+      margin: 10px;
+      padding: 5px;
+  }
 [hidden]{
-    display: none;
-}
+      display: none;
+  }
 .errorMessage .bx{
- font-size: 25px;
+   font-size: 25px;
 }
 .formBtn{
-    margin-top: 20px;
-    height: 30px;
-    width: 150px;
-    align-self: center;
-    border-radius: 3px;
-    color: #555;
-    border: 1px solid black;
-    background-color:#eee;
-    cursor: grab;
-
-}
+      align-self: center;
+      background-color:#eee;
+      border: 1px solid black;
+      border-radius: 3px;
+      color: #555;
+      cursor: grab;
+      height: 30px;
+      margin-top: 20px;
+      width: 150px;
+  }
 a#nonRegisteredYet > i{
-    font-size: 20px;
-}
+      font-size: 20px;
+  }
