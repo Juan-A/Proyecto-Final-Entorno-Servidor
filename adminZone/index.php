@@ -14,7 +14,7 @@ require_once("inc/modules/inc_admin_global.php");
 
 <!-- Adding navbar -->
 <? require_once("inc/sections/nav_bar.php"); ?>
-<? //handleMessage() ?>
+<? handleMessage() ?>
 <?// require_once("inc/sections/footer.php"); ?>
 </body>
 </html>
