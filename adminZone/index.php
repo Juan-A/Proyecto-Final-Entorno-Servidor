@@ -13,7 +13,7 @@ require_once("inc/modules/inc_admin_global.php");
 <body>
 
 <!-- Adding navbar -->
-<? //require_once("inc/sections/nav_bar.php"); ?>
+<? require_once("inc/sections/nav_bar.php"); ?>
 <? //handleMessage() ?>
 <?// require_once("inc/sections/footer.php"); ?>
 </body>
