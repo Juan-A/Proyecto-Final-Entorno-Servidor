@@ -1,5 +1,5 @@
 <?
-require_once("inc/modules/inc_admin_global.php");
+require_once("inc/inc_admin_global.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

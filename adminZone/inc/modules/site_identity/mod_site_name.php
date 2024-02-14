@@ -1,5 +1,5 @@
 <?
-include_once("inc/modules/inc_admin_global.php");
+include_once("inc/inc_admin_global.php");
 
 function siteName(){
     $query = "SELECT var_param_name, var_param_value FROM db_site_identity

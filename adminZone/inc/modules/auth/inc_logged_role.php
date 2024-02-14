@@ -1,7 +1,7 @@
 <?
 //This file includes functions to check if an user is logged in and check for
 // the authorized role.
-require_once("inc/modules/inc_admin_global.php");
+require_once("inc/inc_admin_global.php");
 
 function isLogged()
 {
