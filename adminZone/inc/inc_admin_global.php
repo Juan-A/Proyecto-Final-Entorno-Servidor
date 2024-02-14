@@ -6,9 +6,9 @@ include_once 'modules/site_identity/mod_site_name.php';
 require_once 'modules/site_identity/inc_admin_nav.php';
 require_once 'modules/auth/inc_logged_role.php';
 require_once 'modules/user_interactions/mod_message.php';
-if(isLogged()){
+if(isLogged() && verifyUserRole($_SESSION["user_email"],$_SESSION["user_nickname"]) >= MINIMUM_ROLE){
     //Do nothing
 }else{
     addMessage("Error, acceso no autorizado.",1);
-    header("Location: ../index.php");
+    //header("Location: ../index.php");
 }
