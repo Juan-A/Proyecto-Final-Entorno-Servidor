@@ -13,7 +13,8 @@ function modify($input, $usrID)
         SET user_surname=:usr_surname,user_email=:mail,user_role=:usr_role,user_name=:usr_name,user_nickname=:nick,user_password=:pass WHERE user_id=:usr_id;
     ";
         $preQuery = db()->prepare($query);
-        $preQuery->bindParam(":pass", $input[1]);
+        $newPass = encryptPassword($input[1]);
+        $preQuery->bindParam(":pass", $newPass);
     }
 
 
@@ -35,11 +36,4 @@ function encryptPassword($plainpassword)
     ];
     return password_hash($plainpassword, PASSWORD_BCRYPT, $options);
 }
-function userExists()
-{
-    $queryNickname = "SELECT user_email,user_nickname FROM db_users WHERE user_nickname = :nickname ;";
-    $queryMail = "SELECT user_email,user_nickname FROM db_users WHERE user_email = :email";
-    $preQueryNickname = db()->prepare($$queryNickname);
-    $preQueryNickname->bindParam(":nickname", "juanhcxd");
-    $preQueryMail = db()->prepare($$queryMail);
-}
+

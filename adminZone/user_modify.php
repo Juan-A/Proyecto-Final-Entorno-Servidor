@@ -1,32 +1,26 @@
 <?
-require_once("inc/modules/inc_admin_global.php");
+require_once 'inc/inc_admin_global.php';
 
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $user_id = $_GET["user_id"];
-    $user = $_POST["username"];
-    $name = $_POST["name"];
-    $surname = $_POST["surname"];
-    $mail = $_POST["mail"];
-    $password = $_POST["password"];
-
-    if(empty($user) || empty($name) || empty($surname) || empty($mail)){
-        addMessage("Error al modifcar el usuario, revise que todos los campos han sido rellenados.",1);
-    }else{
-        if(!empty($password)){
-            $password = encryptPassword($_POST["password"]);
-        }
-        //Fits all the data in an array
-        $data = [$mail,$password,$user,0,$name,$surname];
-        try{
-            modify($data,$user_id);
-            header("Location: user_management.php");
-        }catch(PDOException $e){
-            addMessage("Error durante el registro, inténtelo de nuevo más tarde.",1);
-        }
-    }
-    
-    
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $userData = [];
+    $id = $_POST["id"];
+    array_push($userData,$_POST["mail"],$_POST["password"],$_POST["username"],$_POST["role"],$_POST["name"],
+               $_POST["surname"],$_POST["mail"] );
+    modify($userData,$id);
+    addMessage("Usuario modificado correctamente",0);
+    header("Location: user_modify.php?id=$id");
+    exit();
 }
+if($_SERVER["REQUEST_METHOD"]=="GET"){
+    $user_id = $_GET["id"];
+    $user_data = getUser($user_id);
+    if(!$user_data){
+        addMessage("Error, el usuario con el ID indicado no existe.",1);
+        header("Location: user_management.php");
+        exit();
+    }
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -37,6 +31,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     <!-- este título se obtiene desde la base de datos -->
     <title><?=siteName()?> - User Management</title>
     <link rel="stylesheet" href="inc/styles/main_style_admin.css">
+    <link rel="stylesheet" href="inc/styles/user_modify_form.css">
+
 </head>
 <body>
 

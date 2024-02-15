@@ -1,0 +1,8 @@
+.fieldsContainer > form{
+    display: flex;
+    flex-direction: column;
+}
+.fieldsContainer{
+    width: fit-content;
+    margin: auto;
+}
