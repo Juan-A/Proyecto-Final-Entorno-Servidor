@@ -1,7 +1,7 @@
 <?
 require_once 'inc/inc_admin_global.php';
 if(isset($_GET["deleteUser"])){
-echo "OKA";
+//PENDING TO IMPLEMENT: USER DELETION
 }
 ?>
 <!DOCTYPE html>
