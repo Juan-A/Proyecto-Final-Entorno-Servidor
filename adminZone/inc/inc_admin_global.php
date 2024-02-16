@@ -8,6 +8,7 @@ require_once 'modules/auth/inc_logged_role.php';
 require_once 'modules/user_interactions/mod_message.php';
 require_once 'modules/user_modify/inc_get_users.php';
 require_once 'modules/user_modify/inc_user_modify.php';
+require_once 'modules/user_modify/inc_delete_user.php';
 
 if(isLogged() && verifyUserRole($_SESSION["user_email"],$_SESSION["user_nickname"]) >= MINIMUM_ROLE){
     //Do nothing

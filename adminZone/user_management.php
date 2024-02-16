@@ -1,7 +1,9 @@
 <?
 require_once 'inc/inc_admin_global.php';
-if(isset($_GET["deleteUser"])){
-//PENDING TO IMPLEMENT: USER DELETION
+if (isset($_GET["deleteUser"])) {
+    $userID = $_GET["deleteUser"];
+    deleteUser($userID);
+    addMessage("Usuario eliminado correctamente.", 0);
 }
 ?>
 <!DOCTYPE html>
@@ -22,9 +24,10 @@ if(isset($_GET["deleteUser"])){
     <? require_once("inc/sections/nav_bar.php"); ?>
     <? handleMessage(); ?>
     <!--Register box-->
-    <? require_once("inc/sections/users_listing.php");?>
+    <? require_once("inc/sections/users_listing.php"); ?>
     <!--Footer-->
-    <?// require_once("inc/sections/footer.php"); ?>
+    <? // require_once("inc/sections/footer.php"); 
+    ?>
 </body>
 
 </html>
