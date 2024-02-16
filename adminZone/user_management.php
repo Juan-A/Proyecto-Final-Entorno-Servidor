@@ -26,7 +26,7 @@ if (isset($_GET["deleteUser"])) {
     <!--Register box-->
     <? require_once("inc/sections/users_listing.php"); ?>
     <!--Footer-->
-    <? // require_once("inc/sections/footer.php"); 
+    <?// require_once("inc/sections/footer.php"); 
     ?>
 </body>
 
