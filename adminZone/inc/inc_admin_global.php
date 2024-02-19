@@ -9,10 +9,14 @@ require_once 'modules/user_interactions/mod_message.php';
 require_once 'modules/user_modify/inc_get_users.php';
 require_once 'modules/user_modify/inc_user_modify.php';
 require_once 'modules/user_modify/inc_delete_user.php';
+require_once 'modules/categories/inc_get_categories.php';
+require_once 'modules/categories/inc_delete_categories.php';
+
+
 
 if(isLogged() && verifyUserRole($_SESSION["user_email"],$_SESSION["user_nickname"]) >= MINIMUM_ROLE){
     //Do nothing
 }else{
     addMessage("Error, acceso no autorizado.",1);
-    //header("Location: ../index.php");
+    header("Location: ../index.php");
 }
