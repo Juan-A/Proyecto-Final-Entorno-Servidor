@@ -15,9 +15,6 @@
                     ¿Es Subcategoria?
                 </th>
                 <th>
-                    ¿Cuál es la categoria principal?
-                </th>
-                <th>
                     Editar
                 </th>
                 <th>
@@ -31,19 +28,24 @@
             foreach ($categories as $category) {
                 echo "<tr>";
                 foreach ($category as $key => $data) {
-                   echo "<td>";
+                   
                     if($key == "var_is_subcategory"){
+                        echo "<td>";
                         if(!boolval($data)){
-                            echo "No es subcategoria.";
+
+                            echo "<center><i class='bx bxs-x-square' style='color:red;font-size:2em'></i></center>";
+                        }else{
+                            echo "<center><i class='bx bxs-check-square'style='color:green;font-size: 2em;'></i></center>";
                         }
+                        echo "</td>";
                     }else if( $key == "var_parent_category"){
-                        if(is_null($data)){
-                            echo "No tiene categoria superior.";
-                        }
+                        
                     }else{
+                        echo "<td>";
                         echo $data;
+                        echo "</td>";
                     }
-                echo "</td>";
+                
                 }
                 echo "<td><a class='buttonWarning' href='category_modify.php?id=" . $category["var_code"] . "'><i class='bx bx-edit' ></i>Editar Categoria</a></td>";
                 echo "<td><a class='buttonDanger deleteUser' href='categories_management.php?deleteCategory=" . $category["var_code"] . "'><i class='bx bxs-trash bx-tada-hover' ></i></i>Eliminar Categoria</a></td>";
