@@ -1,7 +1,7 @@
     <div class="tableContainer">
         <? $subcategories = getSubcategories($_GET["id"]);
         if (!$subcategories) {
-            echo "<h3>No hay subcategorias.</h3>";
+            echo "<h3 style='text-align:center;'>No hay subcategorias.</h3>";
         } else {
 
 
@@ -33,19 +33,22 @@
                 </tr>
                 <?
 
-
                 foreach ($subcategories as $subcategory) {
                     echo "<tr>";
-                    print_r($subcategory);
                     foreach ($subcategory as $key => $data) {
                         echo "<td>";
-                        if ($key == "var_is_subcategory") {
+                        if ($key == "var_is_subcategory") {    
+                                              
                             if (!boolval($data)) {
                                 echo "No es subcategoria.";
+                            }else{
+                                echo "<center><i class='bx bxs-check-square' style='color:green;font-size: 2em;' ></i></center>";
                             }
                         } else if ($key == "var_parent_category") {
                             if (is_null($data)) {
                                 echo "No tiene categoria superior.";
+                            }else{
+                                echo "Subcategoría de <b>".getCategoryName($_GET["id"])."</b>";
                             }
                         } else {
                             echo $data;

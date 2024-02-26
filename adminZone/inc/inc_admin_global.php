@@ -11,6 +11,9 @@ require_once 'modules/user_modify/inc_user_modify.php';
 require_once 'modules/user_modify/inc_delete_user.php';
 require_once 'modules/categories/inc_get_categories.php';
 require_once 'modules/categories/inc_delete_categories.php';
+require_once 'modules/categories/inc_get_subcategories.php';
+require_once 'modules/categories/inc_modify_category.php';
+
 
 
 

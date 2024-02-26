@@ -5,7 +5,19 @@ function getSubcategories($cat_id){
     $preQuery->bindParam(":parent",$cat_id);
     $preQuery->execute();    
     if($preQuery->rowCount() >= 1){
-        return $preQuery->fetchAll(PDO::FETCH_ASSOC)[0];
+        return $preQuery->fetchAll(PDO::FETCH_ASSOC);
     }
     return false;
+}
+function isParent($subcat_id,$parent_id){
+    $query = "SELECT var_code,var_category_name FROM db_shop_categories WHERE var_code = :subcat AND var_parent_category = :parent_id";
+    $preQuery = db()->prepare($query);
+    $preQuery->bindParam(":subcat",$subcat_id);
+    $preQuery->bindParam("parent_id",$parent_id);
+    $preQuery->execute();
+    if($preQuery->rowCount() >= 1){
+        return true;
+    }else{
+        return false;
+    }
 }
