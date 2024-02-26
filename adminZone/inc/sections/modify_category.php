@@ -8,7 +8,7 @@
                 <p>Categoria Superior</p>
                 <select name="parent">
                     <?
-                    fillCategorySelect();
+                    fillCategorySelect($_GET["id"]);
                     ?>
                 </select>
             </div>

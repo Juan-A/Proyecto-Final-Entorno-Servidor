@@ -30,13 +30,13 @@ function getCategoryName($cat_id)
     }
     return false;
 }
-function fillCategorySelect()
+function fillCategorySelect($subcatID)
 {
     $thereIsParent = false;
     foreach (getAllCategories() as $category) {
         $code = $category["var_code"];
         $cat_name = $category["var_category_name"];
-        $isParent = (isParent($_GET["id"], $code)) ? "selected" : "";
+        $isParent = (isParent($subcatID, $code)) ? "selected" : "";
 
         if ($_GET["id"] != $code) {
 ?>
