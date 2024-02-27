@@ -13,9 +13,9 @@ require_once 'modules/categories/inc_get_categories.php';
 require_once 'modules/categories/inc_delete_categories.php';
 require_once 'modules/categories/inc_get_subcategories.php';
 require_once 'modules/categories/inc_modify_category.php';
-
-
-
+require_once 'modules/products/inc_get_product_category.php';
+require_once 'modules/products/inc_get_products.php';
+require_once 'modules/products/inc_delete_products.php';
 
 if(isLogged() && verifyUserRole($_SESSION["user_email"],$_SESSION["user_nickname"]) >= MINIMUM_ROLE){
     //Do nothing

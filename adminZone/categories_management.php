@@ -2,8 +2,12 @@
 require_once 'inc/inc_admin_global.php';
 if (isset($_GET["deleteCategory"])) {
     $cat_id = $_GET["deleteCategory"];
-    deleteCategory($cat_id);
-    addMessage("Categoria eliminada correctamente.", 0);
+    try{
+        deleteCategory($cat_id);
+    }catch(Exception $e){
+        addMessage("Hubo un fallo al eliminar la categoria: <br> Debes eliminar todas las subcategorias correspondientes antes de continuar.", 1);
+    }
+    
 }
 ?>
 <!DOCTYPE html>

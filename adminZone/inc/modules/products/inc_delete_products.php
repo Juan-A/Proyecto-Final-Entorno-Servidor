@@ -1,11 +1,11 @@
 <?
 require_once("inc/inc_admin_global.php");
 
-function deleteCategory($cat_id)
+function deleteProduct($prod_id)
 {
-    $query = "DELETE FROM db_shop_categories WHERE var_code=:cat_id;";
+    $query = "DELETE FROM db_products WHERE var_id=:prod_id;";
     $preQuery = db()->prepare($query);
-    $preQuery->bindParam(":cat_id", $cat_id,PDO::PARAM_INT);
+    $preQuery->bindParam(":prod_id", $prod_id);
     if (!$preQuery->execute()) {
         return false;
     }
