@@ -24,6 +24,9 @@
                     ¿Variante?
                 </th>
                 <th>
+                    Stock
+                </th>
+                <th>
                     Editar
                 </th>
                 <th>
