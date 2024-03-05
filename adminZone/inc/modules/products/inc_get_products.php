@@ -68,7 +68,7 @@ function fillProductParentSelection($prod_id)
         
     }
     if (!$thereIsParent) {
-        echo "<option selected value='null'>-Sin categoria-</option>";
+        echo "<option selected value='null'>-Sin producto padre-</option>";
     } else {
         echo "<option value='-1'>-Deshacer relación-</option>";
     }

@@ -2,25 +2,46 @@
 require_once 'inc/inc_admin_global.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $catData = [];
+    $prodData = [];
     $id = $_POST["id"];
+    $haveCategory = false;
+    $isVirtual = false;
     $isSub = false;
+
+    if ($_POST["category"] != "-1") {
+        $category = $_POST["category"];
+    } else{
+        $category = null;
+    }
+
+    if ($_POST["virtual"] == "1") {
+        $isVirtual = true;
+        $virtual = $_POST["virtual"];
+    } else{
+        $virtual = 0;
+    }
+
     if ($_POST["parent"] != "-1") {
         $isSub = true;
         $parent = $_POST["parent"];
     } else{
         $parent = null;
     }
-    array_push($catData, $_POST["name"], $_POST["description"], $isSub, $parent);
+    if(isset($_FILES["image"]["full_path"])){
+        $image = uploadProductImage($_FILES["image"]);
+    }else{
+        $image = null;
+    }
+    array_push($prodData, $_POST["name"], $_POST["description"],$image, $_POST["price"],$_POST["vat"],$isSub,$parent,$isVirtual,$category,$_POST["stock"]);
     try {
-        modifyCategory($catData, $id);
+        modifyProduct($prodData, $id);
     } catch (PDOException $e) {
-        addMessage("Hubo un error al modificar la categoria: " . $e->getMessage(), 1);
-        header("Location: category_modify.php?id=$id");
+        addMessage("Hubo un error al modificar el producto: " . $e->getMessage(), 1);
+        header("Location: product_modify.php?id=$id");
         exit();
     }
-    addMessage("Categoria modificada correctamente", 0);
-    header("Location: category_modify.php?id=$id");
+    addMessage("Producto modificado correctamente", 0);
+    header("Location: product_modify.php?id=$id");
     exit();
 }
 if ($_SERVER["REQUEST_METHOD"] == "GET") {

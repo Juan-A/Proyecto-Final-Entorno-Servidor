@@ -18,6 +18,7 @@ require_once 'modules/products/inc_get_products.php';
 require_once 'modules/products/inc_delete_products.php';
 require_once 'modules/products/inc_get_parent_product.php';
 require_once 'modules/products/inc_upload_image.php';
+require_once 'modules/products/inc_modify_product.php';
 
 if(isLogged() && verifyUserRole($_SESSION["user_email"],$_SESSION["user_nickname"]) >= MINIMUM_ROLE){
     //Do nothing

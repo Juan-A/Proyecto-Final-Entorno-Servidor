@@ -1,23 +1,44 @@
 <?php
 require_once("inc/inc_admin_global.php");
 
-function uploadProductImage($fileInput)
-{
-    $target_dir = "../uploads/product_images/";
-    $target_file = $target_dir . basename($fileInput["fileToUpload"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    // Check if image file is a actual image or fake image
-        $check = getimagesize($fileInput["fileToUpload"]["tmp_name"]);
-        if ($check !== false) {
-            echo "File is an image - " . $check["mime"] . ".";
-            $uploadOk = 1;
-        } else {
-            echo "File is not an image.";
-            $uploadOk = 0;
-        }
+function uploadProductImage($fileInput) {
+    // Configuración
+    $targetDir = "../uploads/product_images/"; // Directorio destino donde se guardarán las imágenes subidas
+    $allowedMimeTypes = ["image/jpeg", "image/png", "image/gif"]; // Tipos MIME permitidos
+    $maxFileSize = 5000000; // Tamaño máximo de archivo permitido en bytes (5 MB en este ejemplo)
+
+    // Comprobación de errores
+    if ($fileInput["error"] != UPLOAD_ERR_OK) {
+        echo "Error al subir el archivo. Código de error: " . $fileInput["error"];
+        return false;
+    }
+
+    // Comprobación del tipo MIME
+    if (!in_array($fileInput["type"], $allowedMimeTypes)) {
+        echo "Tipo de archivo no permitido.";
+        return false;
+    }
+
+    // Comprobación del tamaño del archivo
+    if ($fileInput["size"] > $maxFileSize) {
+        echo "El archivo es demasiado grande.";
+        return false;
+    }
+
+    // Generar un nombre de archivo único
+    $fileName = uniqid() . "." . pathinfo($fileInput["name"], PATHINFO_EXTENSION);
+
+    // Mover el archivo subido al directorio de destino
+    if (!move_uploaded_file($fileInput["tmp_name"], $targetDir . $fileName)) {
+        echo "Error al mover el archivo subido.";
+        return false;
+    }
+
+    // Devolver el nombre del archivo subido
+    return $fileName;
 }
+
 function haveImage($prod_id){
-    $imageUrl = getProduct($prod_id)["var_product_image"];
+    $imageUrl = "../uploads/product_images/".getProduct($prod_id)["var_product_image"];
     echo ($imageUrl == "" || $imageUrl == null) ? "" : "<img src='$imageUrl' id='product_preview'>";
 }
