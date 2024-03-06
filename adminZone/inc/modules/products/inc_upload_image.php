@@ -40,5 +40,5 @@ function uploadProductImage($fileInput) {
 
 function haveImage($prod_id){
     $imageUrl = "../uploads/product_images/".getProduct($prod_id)["var_product_image"];
-    echo ($imageUrl == "" || $imageUrl == null) ? "" : "<img src='$imageUrl' id='product_preview'>";
+    echo ($imageUrl == "" || $imageUrl == null) ? "" : "<img src='$imageUrl' id='product_preview'><a class='buttonDanger' href='product_modify.php?deleteImage=1'>Eliminar Imagen</a>";
 }

@@ -45,11 +45,11 @@
                     if ($key == "var_product_is_variant" || $key == "var_parent_product" || 
                         $key == "var_product_category" || $key == "var_is_virtual") {
 
-                    } else if ($key == "var_parent_category") {
+                    } else if ($key == "var_product_image") {
                         if (is_null($data)) {
-                            echo "No tiene categoria superior.";
+                            echo "<center><i class='bx bxs-x-square' style='color:red;font-size:2em'></i></center>";
                         } else {
-                            echo "Subcategoría de <b>" . getCategoryName($_GET["id"]) . "</b>";
+                            echo "<img src='../uploads/product_images/".$data."' width='200px'>";
                         }
                     } else {
                         echo "<td>";
