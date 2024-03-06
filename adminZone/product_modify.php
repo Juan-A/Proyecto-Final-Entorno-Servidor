@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if($_FILES["image"]["size"]!=0){
         $image = uploadProductImage($_FILES["image"]);
     }else{
-        $image = null;
+        $image = getProduct($id)["var_product_image"];
     }
     array_push($prodData, $_POST["name"], $_POST["description"],$image, $_POST["price"],$_POST["vat"],$isSub,$parent,$isVirtual,$category,$_POST["stock"]);
     try {
