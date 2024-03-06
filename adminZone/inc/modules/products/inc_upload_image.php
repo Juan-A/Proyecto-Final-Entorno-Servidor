@@ -39,6 +39,8 @@ function uploadProductImage($fileInput) {
 }
 
 function haveImage($prod_id){
-    $imageUrl = "../uploads/product_images/".getProduct($prod_id)["var_product_image"];
-    echo ($imageUrl == "" || $imageUrl == null) ? "" : "<img src='$imageUrl' id='product_preview'><a class='buttonDanger' href='product_modify.php?deleteImage=1'>Eliminar Imagen</a>";
+    if(!is_null(getProduct($prod_id)["var_product_image"])){
+        $imageUrl = "../uploads/product_images/".getProduct($prod_id)["var_product_image"];
+        echo ($imageUrl == "../uploads/product_images/" || $imageUrl == null) ? "" : "<img src='$imageUrl' id='product_preview' width='400px'><a class='buttonDanger' href='product_modify.php?deleteImage=1'>Eliminar Imagen</a>";
+    }    
 }

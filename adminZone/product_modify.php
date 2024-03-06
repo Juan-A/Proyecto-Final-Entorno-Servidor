@@ -26,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $parent = $_POST["parent"];
     } else{
         $parent = null;
-    }
-    if(is_null($_FILES["image"]["full_path"])){
+    } 
+    if($_FILES["image"]["size"]!=0){
         $image = uploadProductImage($_FILES["image"]);
     }else{
         $image = null;
