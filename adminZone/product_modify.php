@@ -10,29 +10,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($_POST["category"] != "-1") {
         $category = $_POST["category"];
-    } else{
+    } else {
         $category = null;
     }
 
     if ($_POST["virtual"] == "1") {
         $isVirtual = true;
         $virtual = $_POST["virtual"];
-    } else{
+    } else {
         $virtual = 0;
     }
 
     if ($_POST["parent"] != "-1") {
         $isSub = true;
         $parent = $_POST["parent"];
-    } else{
+    } else {
+        $isSub = false;
         $parent = null;
-    } 
-    if($_FILES["image"]["size"]!=0){
+    }
+    if ($_FILES["image"]["size"] != 0) {
         $image = uploadProductImage($_FILES["image"]);
-    }else{
+    } else {
         $image = getProduct($id)["var_product_image"];
     }
-    array_push($prodData, $_POST["name"], $_POST["description"],$image, $_POST["price"],$_POST["vat"],$isSub,$parent,$isVirtual,$category,$_POST["stock"]);
+    array_push($prodData, $_POST["name"], $_POST["description"], $image, $_POST["price"], $_POST["vat"], $isSub, $parent, $isVirtual, $category, $_POST["stock"]);
     try {
         modifyProduct($prodData, $id);
     } catch (PDOException $e) {
@@ -45,6 +46,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    if (isset($_GET["deleteImage"]) && $_GET["deleteImage"] == '1') {
+        deleteImage($_GET["id"]);
+    }
     $prod_id = $_GET["id"];
     $prod_data = getProduct($prod_id);
     if (!$prod_data) {
@@ -63,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- este título se obtiene desde la base de datos -->
-    <title><?= siteName() ?> - Category Management</title>
+    <title><?= siteName() ?> - Product Management</title>
     <link rel="stylesheet" href="inc/styles/main_style_admin.css">
     <link rel="stylesheet" href="inc/styles/user_modify_form.css">
     <script defer src="inc/modules/categories/js/is_child.js"></script>

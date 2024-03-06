@@ -1,7 +1,8 @@
 <?php
 require_once("inc/inc_admin_global.php");
 
-function uploadProductImage($fileInput) {
+function uploadProductImage($fileInput)
+{
     // Configuración
     $targetDir = "../uploads/product_images/"; // Directorio destino donde se guardarán las imágenes subidas
     $allowedMimeTypes = ["image/jpeg", "image/png", "image/gif"]; // Tipos MIME permitidos
@@ -38,9 +39,22 @@ function uploadProductImage($fileInput) {
     return $fileName;
 }
 
-function haveImage($prod_id){
-    if(!is_null(getProduct($prod_id)["var_product_image"])){
-        $imageUrl = "../uploads/product_images/".getProduct($prod_id)["var_product_image"];
-        echo ($imageUrl == "../uploads/product_images/" || $imageUrl == null) ? "" : "<img src='$imageUrl' id='product_preview' width='400px'><a class='buttonDanger' href='product_modify.php?deleteImage=1'>Eliminar Imagen</a>";
-    }    
+function haveImage($prod_id)
+{
+    if (!is_null(getProduct($prod_id)["var_product_image"])) {
+        $imageUrl = "../uploads/product_images/" . getProduct($prod_id)["var_product_image"];
+        echo ($imageUrl == "../uploads/product_images/" || $imageUrl == null) ? "" : "<img src='$imageUrl' id='product_preview' width='400px'><a class='buttonDanger' href='product_modify.php?id=$prod_id&deleteImage=1'>Eliminar Imagen</a>";
+    }
+}
+
+function deleteImage($prod_id)
+{
+    $imageRoute = "../uploads/product_images/" . getProduct($prod_id)["var_product_image"];
+    unlink($imageRoute);
+    $query = "UPDATE db_products SET var_product_image= NULL WHERE var_id=:prod_id;";
+    $preQuery = db()->prepare($query);
+
+    $preQuery->bindValue(":prod_id", $prod_id, PDO::PARAM_INT);
+
+    $preQuery->execute();
 }

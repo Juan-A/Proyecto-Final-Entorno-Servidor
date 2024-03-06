@@ -46,11 +46,13 @@
                         $key == "var_product_category" || $key == "var_is_virtual") {
 
                     } else if ($key == "var_product_image") {
+                        echo "<td>";
                         if (is_null($data)) {
                             echo "<center><i class='bx bxs-x-square' style='color:red;font-size:2em'></i></center>";
                         } else {
                             echo "<img src='../uploads/product_images/".$data."' width='200px'>";
                         }
+                        echo "</td>";
                     } else {
                         echo "<td>";
                         echo $data;
@@ -58,8 +60,8 @@
                     }
                     
                 }
-                echo "<td><a class='buttonWarning' href='product_modify.php?id=" . $product["var_id"] . "'><i class='bx bx-edit' ></i>Editar Producto</a></td>";
-                echo "<td><a class='buttonDanger deleteUser' href='product_management.php?deleteProduct=" . $product["var_id"] . "'><i class='bx bxs-trash bx-tada-hover' ></i></i>Eliminar Producto</a></td>";
+                echo "<td><a class='buttonWarning' href='product_modify.php?id=" . $child["var_id"] . "'><i class='bx bx-edit' ></i>Editar Producto</a></td>";
+                echo "<td><a class='buttonDanger deleteUser' href='product_management.php?deleteProduct=" . $child["var_id"] . "'><i class='bx bxs-trash bx-tada-hover' ></i></i>Eliminar Producto</a></td>";
                 echo "</tr>";
             }
 
