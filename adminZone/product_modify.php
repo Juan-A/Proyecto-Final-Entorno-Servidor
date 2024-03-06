@@ -78,8 +78,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         <? handleMessage() ?>
         <? include_once('inc/sections/modify_product.php'); ?>
         <br>
-        <h2 style="text-align: center;">Subcategorías</h2>
-        <? include_once('inc/sections/subcategories_listing.php'); ?>
+        <h2 style="text-align: center;">Variantes del producto</h2>
+        <? include_once('inc/sections/product_child_listing.php'); ?>
     </main>
     <? // require_once("inc/sections/footer.php"); 
     ?>
