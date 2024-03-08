@@ -27,7 +27,7 @@ if (isset($_GET["deleteCategory"])) {
     <!-- Adding navbar -->
     <? require_once("inc/sections/nav_bar.php"); ?>
     <? handleMessage(); ?>
-    <!--Register box-->
+    <a href="create_category.php" class="buttonOne">Crear categoria</a>
     <? require_once("inc/sections/categories_listing.php"); ?>
     <!--Footer-->
     <?// require_once("inc/sections/footer.php"); 

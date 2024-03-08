@@ -36,7 +36,11 @@ function fillCategorySelect($subcatID)
     foreach (getAllCategories() as $category) {
         $code = $category["var_code"];
         $cat_name = $category["var_category_name"];
-        $isParent = (isParent($subcatID, $code)) ? "selected" : "";
+        if($subcatID != -1){
+            $isParent = (isParent($subcatID, $code)) ? "selected" : "";
+        }else{
+            $isParent = "";
+        }
 
         if ($_GET["id"] != $code) {
 ?>
