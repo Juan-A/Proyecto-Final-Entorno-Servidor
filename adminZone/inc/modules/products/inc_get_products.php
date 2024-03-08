@@ -35,15 +35,18 @@ function fillProductCategorySelection($prod_id)
     foreach (getAllCategories() as $category) {
         $cat_code = $category["var_code"];
         $cat_name = $category["var_category_name"];
-        $isParent = (isProductCategory($cat_code,$prod_id)) ? "selected" : "";
-        if ($_GET["id"] != $cat_code) 
+        if($prod_id != -1){
+            $isParent = (isProductCategory($cat_code, $prod_id)) ? "selected" : "";
+        }else{
+            $isParent = "";
+        }
+        if ($_GET["id"] != $cat_code)
 ?>
-            <option <?= $isParent ?> value=<?= $cat_code ?>><?= $cat_name ?></option>
-<?
-            if ($isParent == "selected") {
-                $thereIsParent = true;
-            }
-        
+        <option <?= $isParent ?> value=<?= $cat_code ?>><?= $cat_name ?></option>
+        <?
+        if ($isParent == "selected") {
+            $thereIsParent = true;
+        }
     }
     if (!$thereIsParent) {
         echo "<option selected value='null'>-Sin categoria-</option>";
@@ -57,15 +60,18 @@ function fillProductParentSelection($prod_id)
     foreach (getAllProducts() as $product) {
         $prod_code = $product["var_id"];
         $prod_name = $product["var_product_name"];
-        $isParent = (isProductParent($prod_code,$prod_id)) ? "selected" : "";
-        if ($prod_id != $prod_code) 
-?>
-            <option <?= $isParent ?> value=<?= $prod_code ?>><?= $prod_name ?></option>
+        if ($prod_id != -1) {
+            $isParent = (isProductParent($prod_code, $prod_id)) ? "selected" : "";
+        } else {
+            $isParent = "";
+        }
+        if ($prod_id != $prod_code)
+        ?>
+        <option <?= $isParent ?> value=<?= $prod_code ?>><?= $prod_name ?></option>
 <?
-            if ($isParent == "selected") {
-                $thereIsParent = true;
-            }
-        
+        if ($isParent == "selected") {
+            $thereIsParent = true;
+        }
     }
     if (!$thereIsParent) {
         echo "<option selected value='null'>-Sin producto padre-</option>";
@@ -73,12 +79,18 @@ function fillProductParentSelection($prod_id)
         echo "<option value='-1'>-Deshacer relación-</option>";
     }
 }
-function fillIsVirtualRadio($prod_id){
-if(getProduct($prod_id)["var_is_virtual"]==1){
-    echo "<label><input type='radio' name='virtual' value='1' checked>Sí</label>
-          <label><input type='radio' name='virtual' value='0'>No</label>";
-}else{
-    echo "<label><input type='radio' name='virtual' value='1'>Sí</label>
-          <label><input type='radio' name='virtual' value='0' checked>No</label>";
-}
+function fillIsVirtualRadio($prod_id)
+{
+    if ($prod_id != -1) {
+        if (getProduct($prod_id)["var_is_virtual"] == 1) {
+            echo "<label><input type='radio' name='virtual' value='1' checked>Sí</label>
+              <label><input type='radio' name='virtual' value='0'>No</label>";
+        } else {
+            echo "<label><input type='radio' name='virtual' value='1'>Sí</label>
+              <label><input type='radio' name='virtual' value='0' checked>No</label>";
+        }
+    } else {
+        echo "<label><input type='radio' name='virtual' value='1'>Sí</label>
+              <label><input type='radio' name='virtual' value='0'>No</label>";
+    }
 }

@@ -21,6 +21,7 @@ require_once 'modules/products/inc_upload_image.php';
 require_once 'modules/products/inc_modify_product.php';
 require_once 'modules/products/inc_get_child_products.php';
 require_once 'modules/categories/inc_add_category.php';
+require_once 'modules/products/inc_add_product.php';
 
 if(isLogged() && verifyUserRole($_SESSION["user_email"],$_SESSION["user_nickname"]) >= MINIMUM_ROLE){
     //Do nothing
