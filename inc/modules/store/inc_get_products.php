@@ -35,5 +35,16 @@ function getProduct($prod_id){
     $preQuery = db()->prepare($query);
     $preQuery->bindParam(":id",$prod_id);
     $preQuery->execute();
-    return $preQuery->fetchAll(PDO::FETCH_ASSOC);
+    return $preQuery->fetchAll(PDO::FETCH_ASSOC)[0];
+}
+function imageUrl($imageName){
+    echo "uploads/product_images/".$imageName;
+}
+function isVirtual($is_virtual){
+    $virtual = ($is_virtual == '1') ? true : false;
+    if($virtual){
+        echo "<span class='isVirtual'><i class='bx bx-cloud'></i> Producto virtual</span>";
+    }else{
+        echo "<span class='notVirtual'><i class='bx bxs-hand' ></i> Producto físico</span>";
+    }
 }
