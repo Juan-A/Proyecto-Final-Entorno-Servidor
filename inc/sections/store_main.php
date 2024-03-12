@@ -25,7 +25,7 @@
             foreach ($allProducts as $key => $producto) {
             ?>
                 <div class="product-card">
-                <a href="product.php?=<?=$producto["var_id"]?>" class="product-link">
+                <a href="product.php?id=<?=$producto["var_id"]?>" class="product-link">
                     <img src="<?=productImage($producto)?>" alt="<?=$producto["var_product_name"]?>" class="product-image">
                     <h3 class="product-name"><?=$producto["var_product_name"]?></h3>
                 </a>
