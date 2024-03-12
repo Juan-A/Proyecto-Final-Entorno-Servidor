@@ -6,3 +6,5 @@ require_once("auth/mod_register.php");
 require_once("auth/mod_login.php");
 require_once("user_interactions/mod_message.php");
 require_once("auth/mod_role.php");
+require_once("store/inc_get_products.php");
+require_once("store/inc_get_categories.php");
