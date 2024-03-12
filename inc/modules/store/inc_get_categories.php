@@ -33,3 +33,15 @@ function fillCategorySelect($selected_id) {
 
     return $output;
 }
+function getSubcategories($parent_id, $categories) {
+    $subcategories = [];
+
+    foreach ($categories as $category) {
+        if ($category['var_parent_category'] == $parent_id) {
+            $subcategories[] = $category;
+            $subcategories = array_merge($subcategories, getSubcategories($category['var_code'], $categories));
+        }
+    }
+
+    return $subcategories;
+}
