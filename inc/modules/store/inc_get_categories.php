@@ -1,4 +1,5 @@
 <?
+
 function getAllCategories()
 {
     $query = "SELECT * FROM db_shop_categories";

@@ -9,7 +9,8 @@ if(isset($_GET["id"])){
     $product = null;
 }
 if(isset($_GET["addToCart"])){
-    
+    addToCart($_GET["addToCart"],1);
+    header("Location: product.php?id=".$_GET["addToCart"]);
 }
 ?>
 <!DOCTYPE html>
