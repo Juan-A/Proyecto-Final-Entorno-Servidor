@@ -39,6 +39,8 @@
     <div class="tax-total">
 
     </div>
+    <form action="checkOrder.php">
     <button class="process-button">Procesar compra</button>
+    </form>
   </div>
 </div>

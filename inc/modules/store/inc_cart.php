@@ -43,3 +43,26 @@ function getCartItems(){
     }
     return $products;
 }
+function getProductsFromCart(){
+    $products = [];
+    $cartProducts = getCartItems();
+    foreach($cartProducts as $key => $quantity){
+        array_push($products,getProduct($key));
+    }
+    return $products;
+}
+function getSubtotal(){
+    $products = [];
+    $subtotal = 0.0;
+    $cartProducts = getCartItems();
+    foreach($cartProducts as $key => $quantity){
+        array_push($products,getProduct($key));
+    }
+    foreach($products as $product){
+        $subtotal += $product["var_product_price"]*getProductQuantity($product["var_id"]);
+    }
+    return $subtotal;
+}
+function getProductQuantity($prod_id){
+    return $_SESSION["cart"][$prod_id];
+}

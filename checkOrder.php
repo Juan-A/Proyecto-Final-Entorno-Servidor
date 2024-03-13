@@ -2,17 +2,10 @@
 require_once("inc/modules/inc_global.php");
 require_once("inc/modules/inc_global_media.php");
 
-if(isset($_GET["id"])){
-    $product_id = $_GET["id"];
-    $product = getProduct($product_id);
+if(isset($_GET["cat"])){
+    $cat = $_GET["cat"];
 }else{
-    $product = null;
-}
-if(isset($_GET["addToCart"])){
-    addToCart($_GET["addToCart"],1);
-    addMessage("Producto añadido al carrito", 0);
-    header("Location: product.php?id=".$_GET["addToCart"]);
-    exit();
+    $cat = null;
 }
 ?>
 <!DOCTYPE html>
@@ -23,13 +16,13 @@ if(isset($_GET["addToCart"])){
     <!-- este título se obtiene desde la base de datos -->
     <title><?=siteName()?></title>
     <link rel="stylesheet" href="inc/styles/main_style.css">
-    <link rel="stylesheet" href="inc/styles/product_page.css">
+    <link rel="stylesheet" href="inc/styles/check_order.css">
     <script src="inc/modules/store/js/inc_page_update.js"></script>
 </head>
 <body>
 <!-- Adding navbar -->
 <? require_once("inc/sections/nav_bar.php"); ?>
 <? handleMessage() ?>
-<? require_once("inc/sections/product_page.php"); ?>
+<? require_once("inc/sections/check_order.php"); ?>
 </body>
 </html>
