@@ -11,7 +11,7 @@ if(isset($_GET["id"])){
 if(isset($_GET["addToCart"])){
     addToCart($_GET["addToCart"],1);
     addMessage("Producto añadido al carrito", 0);
-    header("Location: product.php?id=".$_GET["addToCart"]);
+    header("Location: store.php");
     exit();
 }
 ?>

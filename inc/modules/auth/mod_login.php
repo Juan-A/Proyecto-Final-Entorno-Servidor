@@ -12,6 +12,7 @@ function validateLogin($user, $password)
         $userData = $preQuery->fetch();
         if (password_verify($password, $userData["user_password"])) {
             $_SESSION["user_role"] = $userData["user_role"];
+            $_SESSION["user_id"] = $userData["user_id"];
             $_SESSION["user_name"] = $userData["user_name"];
             $_SESSION["user_surname"] = $userData["user_surname"];
             $_SESSION["user_email"] = $userData["user_email"];

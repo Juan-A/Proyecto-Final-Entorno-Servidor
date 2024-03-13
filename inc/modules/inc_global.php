@@ -9,3 +9,5 @@ require_once("auth/mod_role.php");
 require_once("store/inc_get_products.php");
 require_once("store/inc_get_categories.php");
 require_once("store/inc_cart.php");
+require_once("store/inc_process_order.php");
+require_once("mail/mail.php");

@@ -1,7 +1,7 @@
 <div id="orderContainer">
   <div class="order-form">
     <h1>Información del pedido</h1>
-    <form>
+    <form method="post" action="processOrder.php">
       <label for="name">Nombre:</label>
       <input type="text" id="name" name="name" required value="<?=$_SESSION["user_name"]?>">
 

@@ -22,15 +22,18 @@
             }else{
                 $allProducts = getProductsFromCategory($cat);
             }
-            foreach ($allProducts as $key => $producto) {
+            foreach ($allProducts as $key => $product) {
             ?>
                 <div class="product-card">
-                <a href="product.php?id=<?=$producto["var_id"]?>" class="product-link">
-                    <img src="<?=productImage($producto)?>" alt="<?=$producto["var_product_name"]?>" class="product-image">
-                    <h3 class="product-name"><?=$producto["var_product_name"]?></h3>
+                <a href="product.php?id=<?=$product["var_id"]?>" class="product-link">
+                    <img src="<?=productImage($product)?>" alt="<?=$product["var_product_name"]?>" class="product-image">
+                    <h3 class="product-name"><?=$product["var_product_name"]?></h3>
                 </a>
-                    <p class="product-price"><?=$producto["var_product_price"]?>€</p>
+                    <p class="product-price"><?=$product["var_product_price"]?>€</p>
+                    <form action="product.php" method="get">
+      <input type="hidden" name="addToCart" value="<?=$product["var_id"]?>">
                     <button class="buy-button">Comprar</button>
+                    </form>
                 </div>
 
             <?
@@ -41,7 +44,7 @@
     </main>
 
     <footer class="store-footer">
-        <!-- Aquí puedes agregar información del pie de página, como enlaces a políticas de privacidad, términos y condiciones, etc. -->
+        <!--Pending-->
     </footer>
 
 </div>

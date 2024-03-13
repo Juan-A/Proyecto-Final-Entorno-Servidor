@@ -8,4 +8,5 @@ function siteName(){
 
     $preQuery->execute();
     echo $preQuery ->fetch()[1];
+    return $preQuery ->fetch()[1];
 }

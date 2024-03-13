@@ -2,10 +2,10 @@
 require_once("inc/modules/inc_global.php");
 require_once("inc/modules/inc_global_media.php");
 
-if(isset($_GET["cat"])){
-    $cat = $_GET["cat"];
-}else{
-    $cat = null;
+if(!isLogged()){
+    addMessage("Debes de estar registrado para hacer pedidos.",1);
+    header("Location: cart.php");
+    exit();
 }
 ?>
 <!DOCTYPE html>
