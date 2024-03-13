@@ -1,7 +1,9 @@
 <?
 require_once("inc/modules/inc_global.php");
 require_once("inc/modules/inc_global_media.php");
-
+if(isset($_GET["delete"])){
+    deleteFromCart($_GET["delete"]);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

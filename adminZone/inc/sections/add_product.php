@@ -9,7 +9,7 @@
             <span>Precio:</span>
             <input type="text" name="price" id="price">
             <span>Impuestos:</span>
-            <input type="text" name="vat" id="vat>
+            <input type="text" name="vat" id="vat">
             <span>Stock:</span>
             <input type="number" name="stock" id="stock"  min="0">
             <span>Producto Virtual:</span>

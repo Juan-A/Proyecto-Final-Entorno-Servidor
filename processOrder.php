@@ -16,6 +16,7 @@ try {
     $mail = createMail($orderId, $_SESSION["user_email"], $_SESSION["user_name"] . " " . $_SESSION["user_surname"], $_POST["address"]);
     $confMail = loadMailConf($server, $port, $user, $password, $encType,$useEnc);
     sendMail($confMail, $_SESSION["user_email"], $_SESSION["user_name"] . " " . $_SESSION["user_surname"], $mail, "Pedido " . $orderId);
+    unset($_SESSION["cart"]);
     addMessage("¡Su pedido nº $orderId ha sido realizado correctamente!",0);
     header("Location: store.php");
 } catch (Error $e) {

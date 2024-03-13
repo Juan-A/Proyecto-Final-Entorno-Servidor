@@ -5,7 +5,7 @@ function db()
     $db_user = "root";
     $db_password = "nerja123";
     $db_host = "db";
-    $db_name = "proyecto";
+    $db_name = "proyectodef";
     $pdo_string = "mysql:dbname=$db_name;host=$db_host";
 
     try {

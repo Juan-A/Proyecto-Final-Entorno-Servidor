@@ -3,24 +3,21 @@
   <table>
     <thead>
       <tr>
-
         <th>Cantidad</th>
         <th>Nombre</th>
         <th>Variante</th>
         <th>Imagen</th>
         <th>Precio</th>
         <th>Subtotal</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
-     <?
+     <?php
      $cartProducts = getCartItems();
-    // print_r($cartProducts);
      $products = [];
      foreach($cartProducts as $key => $quantity){
         $product = getProduct($key);
-     
- 
      ?>
       <tr>
         <td><?=$quantity?></td>
@@ -29,8 +26,12 @@
         <td><img src="<?=productImage($product)?>"></td>
         <td><?=$product["var_product_price"]?></td>
         <td><?=doubleval($product["var_product_price"])*$quantity?></td>
+
+        <td><form action="<?=$_SERVER["PHP_SELF"]?>">
+        <input type="hidden" name="delete" value="<?=$key?>">
+        <button class="delete-button">Eliminar</button></form></td>
       </tr>
-      <?
+      <?php
       }
       ?>
     </tbody>
