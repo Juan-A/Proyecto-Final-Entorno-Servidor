@@ -24,7 +24,9 @@ if (isset($_GET["deleteProduct"])) {
     <? require_once("inc/sections/nav_bar.php"); ?>
     <? handleMessage(); ?>
     <!--Register box-->
+    <div style="margin-top: 20px;text-align: center">
     <a href="create_product.php" class="buttonOne">Crear producto</a>
+    </div>
     <? require_once("inc/sections/products_listing.php"); ?>
     <!--Footer-->
     <?// require_once("inc/sections/footer.php"); 

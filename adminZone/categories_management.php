@@ -20,14 +20,15 @@ if (isset($_GET["deleteCategory"])) {
     <title><?= siteName() ?></title>
     <link rel="stylesheet" href="inc/styles/main_style_admin.css">
     <script defer src="inc/modules/user_modify/js/deleteWarning.js"></script>
-
 </head>
 
 <body>
     <!-- Adding navbar -->
     <? require_once("inc/sections/nav_bar.php"); ?>
     <? handleMessage(); ?>
-    <a href="create_category.php" class="buttonOne">Crear categoria</a>
+        <div style="margin-top: 20px;text-align: center">
+            <a href="create_category.php" class="buttonOne">Crear categoria</a>
+        </div>
     <? require_once("inc/sections/categories_listing.php"); ?>
     <!--Footer-->
     <?// require_once("inc/sections/footer.php"); 

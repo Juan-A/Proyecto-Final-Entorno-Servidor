@@ -36,6 +36,21 @@ nav.main {
   text-align: center;
   text-decoration: none;
 }
+.buttonOne:hover {
+  animation: pulse 1s normal;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
 
 .returnNavButton:link {
   align-items: center;
@@ -121,20 +136,129 @@ nav.main {
 .tableContainer table{
   margin: auto;
   margin-top: 20px;
-}
-.tableContainer th{
-  background-color: #aaa;
-
-}
-table,tr, td, th {
-  border: 2px solid black;
+  width: auto; /* Adjust width to content */
   border-collapse: collapse;
+}
+
+.tableContainer th{
+  background-color: #555;
+  color: white;
   padding: 10px;
-  background-color: #eee;
+  font-weight: bold;
+}
+
+.tableContainer td, .tableContainer th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.tableContainer tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.tableContainer tr:hover {
+  background-color: #ddd;
 }
 .admin-content {
   background-color: #f1f1f1;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/*Modern forms*/
+
+.fieldsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+span {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+input[type="text"],
+textarea,
+input[type="file"],
+input[type="number"],
+select {
+  width: 300px;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  height: 100px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#parentProduct,
+#category {
+  margin-top: 20px;
+}
+
+#parentProduct p,
+#category p {
+  font-weight: bold;
+}
+
+#parentProduct select,
+#category select {
+  width: 300px;
+}
+
+#regButton {
+  background-color: #28a745;
+}
+
+.fieldsContainer {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+textarea,
+input[type="file"],
+input[type="number"],
+select {
+  background-color: #fff;
+  transition: border-color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+input[type="file"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: #007bff;
+}
+
+button {
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #0069d9;
 }
