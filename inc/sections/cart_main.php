@@ -1,7 +1,13 @@
 <!-- Página del carrito de compras -->
 <div id="cartContainer">
-  <h1>Carrito de compras</h1>
-  <table>
+  
+  <?
+  if(isCartEmpty()){
+      echo "<h2>El carrito está vacío</h2>";
+  }else{
+    ?>
+    <h1>Carrito de productos</h1>
+    <table>
     <thead>
       <tr>
         <th>Cantidad</th>
@@ -58,4 +64,7 @@
       <button class="process-button">Procesar compra</button>
     </form>
   </div>
+  <?
+  }
+  ?>
 </div>

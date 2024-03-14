@@ -11,25 +11,26 @@
         <div class="hero-content">
             <h2>Encuentra confianza en cada producto</h2>
             <p>Encuentra los productos que puedas necesitar para tu equipo y tu hogar o negocio.</p>
-            <a href="#" class="btn">Comprar ahora</a>
+            <a href="store.php" class="btn">Comprar ahora</a>
         </div>
     </section>
 
     <section id="featured-products">
-        <h2>Featured Products</h2>
+        <h2>¿Qué vendemos? ❓🤔</h2>
         <div class="product-list">
-            <!-- Display featured products here -->
+            Además de nuestros servicios, también ofrecemos productos de calidad para que puedas disfrutar de la mejor tecnología. <br>
+            ¡Puedes contratarlos desde la tienda!
         </div>
     </section>
 
     <section id="services">
         <h2>Nuestros Servicios</h2>
         <ul>
-            <li>Reparación de ordenadores</li>
-            <li>Instalación de software</li>
-            <li>Construcción de PC a medida</li>
-            <li>Soluciones de redes</li>
-            <li>Diseño de Webs</li>
+            <li>Reparación de ordenadores 🖥️</li>
+            <li>Instalación de software 🧑‍💻</li>
+            <li>Construcción de PC a medida 📐</li>
+            <li>Soluciones de redes 🛜</li>
+            <li>Diseño de Webs ⌨️</li>
         </ul>
     </section>
 

@@ -89,3 +89,10 @@ function getCartCount(){
 function setQuantity($prod_id,$quantity){
     $_SESSION["cart"][$prod_id] = $quantity;
 }
+//Funcion para saber si el carrito esta vacio
+function isCartEmpty(){
+    if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
+        return false;
+    }
+    return true;
+}
