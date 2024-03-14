@@ -1,5 +1,8 @@
 <?
+// Página de creación de categorías
 require_once 'inc/inc_admin_global.php';
+
+// Si recibe un post, crea la categoría
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $catData = [];
     $isSub = false;
@@ -9,8 +12,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $parent = null;
     }
+    // Agrego los datos al array
     array_push($catData, $_POST["name"], $_POST["description"], $isSub, $parent);
     try {
+        // Llamo a la función para agregar la categoría
         addCategory($catData);
     } catch (PDOException $e) {
         addMessage("Hubo un error al crear la categoria: " . $e->getMessage(), 1);

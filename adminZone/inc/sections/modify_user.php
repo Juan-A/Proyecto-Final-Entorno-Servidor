@@ -1,3 +1,4 @@
+<!-- Formulario de modificación de usuario -->
 <main>
     <div class="fieldsContainer">
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">

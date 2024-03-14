@@ -1,5 +1,7 @@
 <?
+// Página de administración de productos
 require_once 'inc/inc_admin_global.php';
+//Si recibe el parámetro deleteProduct, elimina el producto con ese id
 if (isset($_GET["deleteProduct"])) {
     $productID = $_GET["deleteProduct"];
     deleteProduct($productID);

@@ -1,4 +1,12 @@
 <?
+/*
+Funcion para modificar una categoria
+con un array de 4 elementos:
+    0 => Nombre de la categoría
+    1 => Descripción de la categoría
+    2 => Si es subcategoría o no
+    3 => Código de la categoría padre (si es subcategoría)
+*/
 function modifyCategory($input, $catID)
 {
     $query = "UPDATE db_shop_categories

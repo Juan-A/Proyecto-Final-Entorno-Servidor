@@ -1,18 +1,24 @@
 <?
+// Página de modificación de categorías
 require_once 'inc/inc_admin_global.php';
 
+// Si recibo un POST con  con el formulario de modificación de categoría
+// entonces modifico la categoría (se llama a sí misma)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $catData = [];
     $id = $_POST["id"];
     $isSub = false;
+    // Si el valor de parent es distinto de -1, entonces es una subcategoría
     if ($_POST["parent"] != "-1") {
         $isSub = true;
         $parent = $_POST["parent"];
     } else{
         $parent = null;
     }
+    // Agrego los datos al array
     array_push($catData, $_POST["name"], $_POST["description"], $isSub, $parent);
     try {
+        // Llamo a la función para modificar la categoría
         modifyCategory($catData, $id);
     } catch (PDOException $e) {
         addMessage("Hubo un error al modificar la categoria: " . $e->getMessage(), 1);
@@ -23,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: category_modify.php?id=$id");
     exit();
 }
+// Si recibo un GET con un id de categoría, entonces muestro el formulario
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $cat_id = $_GET["id"];
     $cat_data = getCategory($cat_id);

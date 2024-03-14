@@ -1,3 +1,4 @@
+    <!-- Formulario para modificar categorias -->
     <div class="fieldsContainer">
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
             <span>Nombre de categoria:</span>
@@ -13,7 +14,7 @@
                 </select>
             </div>
             <br>
-            <input type="hidden"  name ="id" value="<?=$_GET["id"]?>">
+            <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
             <button type="submit" id="regButton" class="formBtn">Modificar</button>
         </form>
     </div>

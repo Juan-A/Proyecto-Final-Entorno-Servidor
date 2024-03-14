@@ -1,4 +1,5 @@
 <?
+// Funcion para obtener los productos hijos de un producto dado su id
 function getChildProducts($parent){
     $query = "SELECT * FROM db_products WHERE var_product_is_variant = 1 AND var_parent_product = :parent";
     $preQuery = db()->prepare($query);

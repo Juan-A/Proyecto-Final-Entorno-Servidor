@@ -1,3 +1,5 @@
+<!-- Crear una tabla con los usuarios -->
+<!-- Puedo editar o eliminar un usuario -->
 <main>
     <div class="tableContainer">
         <table>

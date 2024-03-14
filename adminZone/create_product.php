@@ -1,25 +1,28 @@
 <?
+//Página de creación de productos
+
 require_once 'inc/inc_admin_global.php';
 
+//Si recibe un post, crea el producto
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prodData = [];
     $haveCategory = false;
     $isVirtual = false;
     $isSub = false;
-
+    // Si el valor de categoria es -1, entonces no tiene categoría
     if ($_POST["category"] != "-1") {
         $category = $_POST["category"];
     } else {
         $category = null;
     }
-
+    // Si el valor de virtual es 1...
     if ($_POST["virtual"] == "1") {
         $isVirtual = true;
         $virtual = $_POST["virtual"];
     } else {
         $virtual = 0;
     }
-
+    // Si el valor de parent es -1, entonces no tiene categoría.
     if ($_POST["parent"] != "-1") {
         $isSub = true;
         $parent = $_POST["parent"];
@@ -27,13 +30,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $isSub = false;
         $parent = null;
     }
+    //Si se ha elegido una imagen, la sube (si no, nada)
     if ($_FILES["image"]["size"] != 0) {
         $image = uploadProductImage($_FILES["image"]);
     } else {
         $image = getProduct($id)["var_product_image"];
     }
+    // Agrego los datos al array
     array_push($prodData, $_POST["name"], $_POST["description"], $image, $_POST["price"], $_POST["vat"], $isSub, $parent, $isVirtual, $category, $_POST["stock"]);
     try {
+        // Llamo a la función para agregar el producto
         addProduct($prodData);
     } catch (PDOException $e) {
         addMessage("Hubo un error al crear el producto: " . $e->getMessage(), 1);

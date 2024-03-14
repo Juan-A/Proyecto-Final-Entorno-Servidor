@@ -1,3 +1,5 @@
+//Este código se encarga de mostrar un mensaje de confirmación al usuario antes de eliminar un elemento.
+//Si el usuario confirma, se elimina el elemento. Se ha usado para categorías y usuarios.
 var elems = document.getElementsByClassName('deleteUser');
 var confirmIt = function (e) {
     if (!confirm('¿Estás seguro? Esta acción no se puede deshacer.')) e.preventDefault();

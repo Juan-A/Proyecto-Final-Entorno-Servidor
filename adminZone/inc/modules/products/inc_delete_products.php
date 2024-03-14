@@ -1,6 +1,6 @@
 <?
 require_once("inc/inc_admin_global.php");
-
+//Función para eliminar un producto con su id
 function deleteProduct($prod_id)
 {
     $query = "DELETE FROM db_products WHERE var_id=:prod_id;";

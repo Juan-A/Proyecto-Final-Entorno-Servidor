@@ -1,4 +1,19 @@
 <?
+/*
+Funcion para añadir un producto a la base de datos
+con un array de 10 elementos:
+    0 => Nombre del producto
+    1 => Descripción del producto
+    2 => Imagen del producto
+    3 => Precio del producto
+    4 => IVA del producto
+    5 => Si es variante o no
+    6 => Código del producto padre (si es variante)
+    7 => Si es virtual o no
+    8 => Código de la categoría del producto
+    9 => Stock del producto
+    Ajusto algunos valores para que se adapten a la base de datos.
+*/
 function addProduct($input)
 {
     $query = "INSERT INTO `db_products` (`var_id`, `var_product_name`, `var_product_description`, `var_product_image`, `var_product_price`, `var_product_vat`, `var_product_is_variant`, `var_parent_product`, `var_is_virtual`, `var_product_category`, `var_product_stock`) VALUES

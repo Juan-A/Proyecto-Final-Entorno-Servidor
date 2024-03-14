@@ -1,4 +1,6 @@
 <?
+// Funcion para mostrar los mensajes dados al usuario
+//Es capaz de manejar mas de un mensaje a la vez.
 function handleMessage()
 {
 
@@ -14,14 +16,16 @@ function handleMessage()
         }
         echo $finalMessage."</div>";
     }
+    // Elimino los mensajes para que no se muestren en la siguiente página
     unset($_SESSION["message"]);
 }
+// Funcion para añadir un mensaje a la lista de mensajes
 function addMessage($message, $status)
 {
-    /*Stores the error message in an array, [message,status]:
-    Status codes:
-    0 -> Success
-    1-> Error
+    /*Almacena el mensaje de error en un array, [mensaje, estado]:
+    Códigos de estado:
+    0 -> Éxito
+    1 -> Error
     */
 
         if(isset($_SESSION["message"]) && is_array($_SESSION["message"])){

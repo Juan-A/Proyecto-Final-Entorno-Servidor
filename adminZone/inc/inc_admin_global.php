@@ -1,4 +1,8 @@
 <?
+//Incluye todos los archivos necesarios para el funcionamiento del panel de administración
+/* Me aseguro de que la sesión esté iniciada en todas las páginas, 
+ya que este archivo se incluye en todas las páginas del panel de administración.
+*/
 session_start();
 require_once 'adminConfig.php';
 require_once '../inc/modules/database/db_connect.php';
@@ -22,7 +26,7 @@ require_once 'modules/products/inc_modify_product.php';
 require_once 'modules/products/inc_get_child_products.php';
 require_once 'modules/categories/inc_add_category.php';
 require_once 'modules/products/inc_add_product.php';
-
+//Si el usuario no está logueado o no tiene el rol mínimo, lo redirige al index (Lo defino en adminZone/adminConfig.php)
 if(isLogged() && verifyUserRole($_SESSION["user_email"],$_SESSION["user_nickname"]) >= MINIMUM_ROLE){
     //Do nothing
 }else{

@@ -1,4 +1,18 @@
-<?
+<?php
+/*
+Función para modificar un producto dado su id
+usando un array con los datos del producto:
+    0 => Nombre del producto
+    1 => Descripción del producto
+    2 => Imagen del producto
+    3 => Precio del producto
+    4 => IVA del producto
+    5 => Si el producto es variante
+    6 => Producto padre
+    7 => Si el producto es virtual
+    8 => Categoría del producto
+    9 => Stock del producto
+*/
 function modifyProduct($input, $prodID)
 {
     $query = "UPDATE db_products

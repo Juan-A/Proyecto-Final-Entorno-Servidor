@@ -1,5 +1,6 @@
 <?
 require_once("inc/inc_admin_global.php");
+// Función para obtener todos los productos
 function getAllProducts()
 {
     $query = "SELECT * FROM db_products";
@@ -7,6 +8,7 @@ function getAllProducts()
     $preQuery->execute();
     return $preQuery->fetchAll(PDO::FETCH_ASSOC);
 }
+// Función para obtener un producto dado su id
 function getProduct($prod_id)
 {
     $query = "SELECT * FROM db_products WHERE var_id = :prod_id";
@@ -18,6 +20,7 @@ function getProduct($prod_id)
     }
     return false;
 }
+// Función para obtener el numero de productos
 function getProductCount(){
     $query = "SELECT COUNT(*) FROM db_products";
     $preQuery = db()->prepare($query);
@@ -36,6 +39,11 @@ function getCategoryName($cat_id)
     }
     return false;
 } */
+/*
+Funcion para crear un select con todos los productos
+y seleccionar su categoria (si la tiene)
+También puede deshacer la relación con la categoria.
+*/
 function fillProductCategorySelection($prod_id)
 {
     $thereIsParent = false;
@@ -61,6 +69,11 @@ function fillProductCategorySelection($prod_id)
         echo "<option value='-1'>-Deshacer relación-</option>";
     }
 }
+/*
+Funcion para rellenar el select de productos
+e indicar si es hijo de otro producto
+También puede deshacer la relación con el producto padre.
+*/
 function fillProductParentSelection($prod_id)
 {
     $thereIsParent = false;
@@ -86,6 +99,7 @@ function fillProductParentSelection($prod_id)
         echo "<option value='-1'>-Deshacer relación-</option>";
     }
 }
+// Funcion para rellenar el selector de si un producto es virtual o no
 function fillIsVirtualRadio($prod_id)
 {
     if ($prod_id != -1) {

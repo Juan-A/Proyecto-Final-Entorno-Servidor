@@ -1,4 +1,5 @@
 <?
+// Función para ver si un producto pertenece a una categoría
 function isProductCategory($cat_id,$prod_id){
     $query = "SELECT var_id FROM db_products WHERE var_id = :prod_id AND var_product_category = :cat_id";
     $preQuery = db()->prepare($query);

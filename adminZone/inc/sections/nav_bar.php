@@ -1,3 +1,4 @@
+<!-- Insertar el menú de navegación -->
 <nav class="main">
 
     <? insertNavBarMenu(); ?>

@@ -1,8 +1,6 @@
 <?
-//This file includes functions to check if an user is logged in and check for
-// the authorized role.
 require_once("inc/inc_admin_global.php");
-
+//Función para comprobar si el usuario está logueado
 function isLogged()
 {
     if (isset($_SESSION["user_email"])) {
@@ -13,7 +11,7 @@ function isLogged()
     return false;
 }
 
-//Verifies if an user have rights to show the Admin Panel item in the nav's menu.
+//Verificar el rol del usuario (lo devuelve si existe, sino devuelve false)
 function verifyUserRole($email, $user)
 {
 

@@ -1,35 +1,36 @@
 <?php
 require_once("inc/inc_admin_global.php");
-
+//Función para subir una imagen de producto
+// El parametro recibe $_FILES["img"]
 function uploadProductImage($fileInput)
 {
-    // Configuración
-    $targetDir = "../uploads/product_images/"; // Directorio destino donde se guardarán las imágenes subidas
-    $allowedMimeTypes = ["image/jpeg", "image/png", "image/gif"]; // Tipos MIME permitidos
-    $maxFileSize = 5000000; // Tamaño máximo de archivo permitido en bytes (5 MB en este ejemplo)
+    // Rutas
+    $targetDir = "../uploads/product_images/"; // Directorio destino
+    $allowedMimeTypes = ["image/jpeg", "image/png", "image/gif"]; // Tipos imagen permitidos
+    $maxFileSize = 5000000; // Maximo 5MB
 
-    // Comprobación de errores
+    // Comprueba la subida del archivo
     if ($fileInput["error"] != UPLOAD_ERR_OK) {
         echo "Error al subir el archivo. Código de error: " . $fileInput["error"];
         return false;
     }
 
-    // Comprobación del tipo MIME
+    // Comprueba formato del archivo
     if (!in_array($fileInput["type"], $allowedMimeTypes)) {
         echo "Tipo de archivo no permitido.";
         return false;
     }
 
-    // Comprobación del tamaño del archivo
+    // Comprueba tamaño del archivo
     if ($fileInput["size"] > $maxFileSize) {
         echo "El archivo es demasiado grande.";
         return false;
     }
 
-    // Generar un nombre de archivo único
+    // Genera un nombre para el archivo subido
     $fileName = uniqid() . "." . pathinfo($fileInput["name"], PATHINFO_EXTENSION);
 
-    // Mover el archivo subido al directorio de destino
+    // Muevo el archivo subido al directorio de imagenes
     if (!move_uploaded_file($fileInput["tmp_name"], $targetDir . $fileName)) {
         echo "Error al mover el archivo subido.";
         return false;
@@ -38,7 +39,11 @@ function uploadProductImage($fileInput)
     // Devolver el nombre del archivo subido
     return $fileName;
 }
-
+/*
+Función que nos dice si un producto tiene imagen o no dado un id de producto
+(Función para la pagina de modificación/creación de productos)
+La muestra si tiene imagen y un botón para eliminarla.
+*/
 function haveImage($prod_id)
 {
     if (!is_null(getProduct($prod_id)["var_product_image"])) {
@@ -46,7 +51,8 @@ function haveImage($prod_id)
         echo ($imageUrl == "../uploads/product_images/" || $imageUrl == null) ? "" : "<img src='$imageUrl' id='product_preview' width='400px'><a class='buttonDanger' href='product_modify.php?id=$prod_id&deleteImage=1'>Eliminar Imagen</a>";
     }
 }
-
+//Función para eliminar una imagen de producto dado un id de producto
+//Elimina también la imagen del directorio de imágenes
 function deleteImage($prod_id)
 {
     $imageRoute = "../uploads/product_images/" . getProduct($prod_id)["var_product_image"];

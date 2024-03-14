@@ -1,3 +1,5 @@
+<!-- Página que muestra todas las categorías en una tabla -->
+<!-- Se puede editar o eliminar una categoría -->
 <main>
     <div class="tableContainer">
         <table>

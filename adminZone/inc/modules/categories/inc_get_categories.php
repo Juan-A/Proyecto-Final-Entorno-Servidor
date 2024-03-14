@@ -1,5 +1,6 @@
 <?
 require_once("inc/inc_admin_global.php");
+//Función para obtener todas las categorías
 function getAllCategories()
 {
     $query = "SELECT * FROM db_shop_categories";
@@ -8,6 +9,7 @@ function getAllCategories()
 
     return $preQuery->fetchAll(PDO::FETCH_ASSOC);
 }
+//Función para obtener todas las subcategorías dada una categoría
 function getCategory($cat_id)
 {
     $query = "SELECT * FROM db_shop_categories WHERE var_code = :cat_id";
@@ -19,6 +21,7 @@ function getCategory($cat_id)
     }
     return false;
 }
+//Función para obtener el número de categorías
 function getCategoryCount()
 {
     $query = "SELECT COUNT(*) FROM db_shop_categories";
@@ -26,6 +29,7 @@ function getCategoryCount()
     $preQuery->execute();
     return $preQuery->fetchColumn();
 }
+//Función para obtener el nombre de una categoría dada su id
 function getCategoryName($cat_id)
 {
     $query = "SELECT var_category_name FROM db_shop_categories WHERE var_code = :cat_id";
@@ -37,6 +41,11 @@ function getCategoryName($cat_id)
     }
     return false;
 }
+/*
+Función para crear un select con todas las categorías
+y seleccionar la categoría padre de una subcategoría (si la tiene)
+También puede deshacer la relación con la categoría padre.
+*/
 function fillCategorySelect($subcatID)
 {
     $thereIsParent = false;

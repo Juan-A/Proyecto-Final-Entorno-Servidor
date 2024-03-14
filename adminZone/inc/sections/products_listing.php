@@ -1,3 +1,5 @@
+<!-- Muestra una tabla con los productos -->
+<!-- Puedo editar o eliminar un producto -->
 <main>
     <div class="tableContainer">
         <table>

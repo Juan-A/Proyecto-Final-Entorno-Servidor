@@ -1,4 +1,12 @@
 <?
+/*
+Añade una nueva categoría a la base de datos
+con un array de 4 elementos:
+    0 => Nombre de la categoría
+    1 => Descripción de la categoría
+    2 => Si es subcategoría o no
+    3 => Código de la categoría padre (si es subcategoría)
+*/
 function addCategory($input)
 {
     $query = "INSERT INTO `db_shop_categories` (`var_code`, `var_category_name`, `var_category_description`, `var_is_subcategory`, `var_parent_category`) 

@@ -1,3 +1,4 @@
+<!-- Formulario para añadir un producto -->
 <div class="fieldsContainer">
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
             <span>Nombre de Producto:</span>

@@ -1,5 +1,7 @@
 <?
+// Página de gestión de usuarios
 require_once 'inc/inc_admin_global.php';
+//Si recibe un GET, elimina el usuario con ese id
 if (isset($_GET["deleteUser"])) {
     $userID = $_GET["deleteUser"];
     deleteUser($userID);

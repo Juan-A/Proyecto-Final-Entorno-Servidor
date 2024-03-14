@@ -1,3 +1,4 @@
+<!-- Formulario para añadir una categoria -->
 <div class="fieldsContainer">
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
             <span>Nombre de categoria:</span>

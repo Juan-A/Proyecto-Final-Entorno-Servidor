@@ -1,6 +1,17 @@
 <?
 require_once("inc/inc_admin_global.php");
+/*
+Funcion para modificar un usuario con un id
+y un array con los datos del usuario, que son:
+[0] => Email
+[1] => Password
+[2] => Nickname
+[3] => Rol
+[4] => Nombre
+[5] => Apellido
 
+Si el password está vacío, no se modifica, uso diferente query.
+*/
 function modify($input, $usrID)
 {
     if ($input[1] == "") {
