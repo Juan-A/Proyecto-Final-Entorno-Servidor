@@ -1,7 +1,7 @@
 <?
 require_once("inc/modules/inc_global.php");
 
-//Verifies if an user have rights to show the Admin Panel item in the nav's menu.
+//Verifica si el usuario es administrador para mostrar el acceso a la zona de administración
 function isAdmin($email, $user, $expectedRole)
 {
 

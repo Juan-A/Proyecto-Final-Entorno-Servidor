@@ -1,7 +1,10 @@
 <?
+//Página de login
 require_once("inc/modules/inc_global.php");
 require_once("inc/modules/inc_global_media.php");
 
+//Si recibe por POST los datos de usuario y contraseña, los valida y 
+// si son correctos, redirige a la página de inicio.
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(validateLogin($_POST["username"],$_POST["password"])){
         $name = $_SESSION["user_name"];

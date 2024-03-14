@@ -1,25 +1,29 @@
 <?
+//Página de registro
 require_once("inc/modules/inc_global.php");
 require_once("inc/modules/inc_global_media.php");
 
+//Si recibimos los datos por POST...
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $user = $_POST["username"];
     $name = $_POST["name"];
     $surname = $_POST["surname"];
     $mail = $_POST["mail"];
     $password = $_POST["password"];
-
+    //Si alguno de los campos está vacío, mostramos un mensaje de error.
     if(empty($user) || empty($name) || empty($surname) || empty($mail) || empty($password)){
         addMessage("Error al registrar el usuario, revise que todos los campos han sido rellenados.",1);
     }else{
+        //Encriptamos la contraseña
         $password = encryptPassword($_POST["password"]);
-        //Fits all the data in an array
+        //Metemos los datos en un array y los enviamos a la función de registro.
         $data = [$mail,$password,$user,0,$name,$surname];
         try{
             register($data);
             header("Location: login.php");
         }catch(PDOException $e){
-            addMessage("Error durante el registro, inténtelo de nuevo más tarde.",1);
+            //Si el usuario ya existe, mostramos un mensaje de error.
+            addMessage("EL usuario/mail ya existe, inténtelo con otro.",1);
         }
     }
     

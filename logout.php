@@ -1,4 +1,5 @@
 <?
+//Script para cerrar la sesion de usuario
 require_once("inc/modules/inc_global.php");
 require_once("inc/modules/inc_global_media.php");
 session_destroy();

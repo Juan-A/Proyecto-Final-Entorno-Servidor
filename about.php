@@ -1,6 +1,7 @@
 <?
 require_once("inc/modules/inc_global.php");
 require_once("inc/modules/inc_global_media.php");
+// Página de información sobre la tienda
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,6 @@ require_once("inc/modules/inc_global_media.php");
     <script defer src="inc/modules/site_identity/message_dissapear.js"></script>
 </head>
 <body>
-<!-- Adding navbar -->
 <? require_once("inc/sections/nav_bar.php"); ?>
 <? handleMessage() ?>
 <? require_once("inc/sections/about.php"); ?>

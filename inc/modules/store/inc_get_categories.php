@@ -1,5 +1,5 @@
 <?
-
+// Obtiene todas las categorías de la base de datos
 function getAllCategories()
 {
     $query = "SELECT * FROM db_shop_categories";
@@ -8,6 +8,8 @@ function getAllCategories()
 
     return $preQuery->fetchAll(PDO::FETCH_ASSOC);
 }
+// Rellena el select de categorías con las categorías de la base de datos
+// Si se le pasa un id, selecciona la categoría con ese id.
 function fillCategorySelect($selected_id) {
     $categories = getAllCategories();
     $output = '';
@@ -34,6 +36,7 @@ function fillCategorySelect($selected_id) {
 
     return $output;
 }
+// Funcion recursiva para obtener las subcategorías de una categoría
 function getSubcategories($parent_id, $categories) {
     $subcategories = [];
 

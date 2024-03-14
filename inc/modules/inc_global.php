@@ -1,4 +1,5 @@
 <?
+//Incluye los módulos necesarios para el funcionamiento de la tienda.
 session_start();
 require_once("database/db_connect.php");
 require_once("site_identity/mod_navbar_menu.php");

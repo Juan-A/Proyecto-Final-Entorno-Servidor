@@ -1,3 +1,5 @@
+// Este archivo contiene funciones que se encargan de verificar que los datos introducidos por el usuario en el formulario de registro son correctos.
+
 const regButton = document.querySelector("#regButton")
 
 function verifySame(){
@@ -8,6 +10,7 @@ function verifySame(){
     }
     return true
 }
+//Esta función se encarga de verificar que el usuario introducido tiene una longitud mayor a 3 caracteres.
 function userIsValid(){
     let user = document.querySelector("#username").value;
     if(user.length <= 3 ){
@@ -17,23 +20,7 @@ function userIsValid(){
 
 }
 
-//Could be useful if I want to check if all the fields are filled every second. Prevents user to...
-function filledAll(){
-    let password = document.querySelector("#password").value.length!=0
-    let passwordConfirm = document.querySelector("#passwordConfirm").value.length!=0
-    let user = document.querySelector("#username").value.length!=0;
-    let name = document.querySelector("#name").value.length!=0
-    let surname = document.querySelector("#surname").value.length!=0
-    let mail = document.querySelector("#mail").value.length!=0
-
-    if(password && passwordConfirm && user && name && surname && mail ){
-        return false;
-    }
-    regButton.disabled=true;
-    console.log("meow")
-
-}
-
+//Deshabito por defecto el botón de registro.
 regButton.disabled=true
 
 document.querySelector("#passwordConfirm").addEventListener("keyup",(event, elemento) => {
@@ -54,9 +41,7 @@ document.querySelector("#username").addEventListener("keyup",(event, element) =>
         document.querySelector(".errorMessage").hidden = false;
         document.querySelector(".errorMessage").innerHTML = "<i class='bx bx-error bx-flashing' ></i>"+"<span>Error, el usuario es demasiado corto.</span>";
 
-    }else{
-        //User is taken will be implemented on this block later.
-        
+    }else{       
         regButton.disabled = false;
         document.querySelector(".errorMessage").hidden = true;
         document.querySelector(".errorMessage").innerText = "";

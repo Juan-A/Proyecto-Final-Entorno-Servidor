@@ -1,4 +1,5 @@
 <?
+// Elimina un producto del carrito.
 function deleteFromCart($prod_id){
     // Elimina unidades mientras haya más de una, entonces elimina el producto.
     if(isset($_SESSION["cart"][$prod_id])){

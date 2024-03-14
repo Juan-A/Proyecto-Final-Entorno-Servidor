@@ -1,7 +1,9 @@
 <?
+//Página de información y formulario del pedido
 require_once("inc/modules/inc_global.php");
 require_once("inc/modules/inc_global_media.php");
 
+//Si el usuario no está logueado, lo redirige al carrito
 if(!isLogged()){
     addMessage("Debes de estar registrado para hacer pedidos.",1);
     header("Location: cart.php");
@@ -22,7 +24,6 @@ if(!isLogged()){
 
 </head>
 <body>
-<!-- Adding navbar -->
 <? require_once("inc/sections/nav_bar.php"); ?>
 <? handleMessage() ?>
 <? require_once("inc/sections/check_order.php"); ?>

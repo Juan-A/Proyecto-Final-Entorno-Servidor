@@ -1,12 +1,13 @@
 <?
 include_once("inc/modules/inc_global.php");
-
+// Obtiene todos los productos.
 function getAllProducts(){
     $query = "SELECT * FROM db_products";
     $preQuery = db()->prepare($query);
     $preQuery->execute();
     return $preQuery->fetchAll(PDO::FETCH_ASSOC);
 }
+// Obtiene los productos de una categoría.
 function getProductsFromCategory($cat_id) {
     $categories = getAllCategories();
     $products = getAllProducts();
@@ -27,9 +28,15 @@ function getProductsFromCategory($cat_id) {
 
     return $products_from_category;
 }
+// Obtiene la ruta de la imagen de un producto.
 function productImage($product){
     return "uploads/product_images/".$product["var_product_image"];
 }
+// Imprime la ruta de la imagen de un producto.
+function imageUrl($imageName){
+    echo "uploads/product_images/".$imageName;
+}
+// Obtiene un producto por su ID.
 function getProduct($prod_id){
     $query = "SELECT * FROM db_products WHERE var_id = :id ";
     $preQuery = db()->prepare($query);
@@ -37,9 +44,8 @@ function getProduct($prod_id){
     $preQuery->execute();
     return $preQuery->fetchAll(PDO::FETCH_ASSOC)[0];
 }
-function imageUrl($imageName){
-    echo "uploads/product_images/".$imageName;
-}
+
+// Obtiene si un producto es virtual o no.
 function isVirtual($is_virtual){
     $virtual = ($is_virtual == '1') ? true : false;
     if($virtual){

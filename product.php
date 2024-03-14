@@ -1,14 +1,18 @@
 <?
+//Página de producto
 require_once("inc/modules/inc_global.php");
 require_once("inc/modules/inc_global_media.php");
 
+//Debe obtener el producto pasado por el id con GET
 if(isset($_GET["id"])){
     $product_id = $_GET["id"];
     $product = getProduct($product_id);
 }else{
     $product = null;
 }
+//Si addToCart está en GET, añade el producto al carrito
 if(isset($_GET["addToCart"])){
+    //Con el ID y la cantidad a añadir.
     addToCart($_GET["addToCart"],1);
     addMessage("Producto añadido al carrito", 0);
     header("Location: store.php");
@@ -28,7 +32,6 @@ if(isset($_GET["addToCart"])){
     <script defer src="inc/modules/site_identity/message_dissapear.js"></script>
 </head>
 <body>
-<!-- Adding navbar -->
 <? require_once("inc/sections/nav_bar.php"); ?>
 <? handleMessage() ?>
 <? require_once("inc/sections/product_page.php"); ?>

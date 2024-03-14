@@ -8,19 +8,21 @@ require 'inc/mail/src/PHPMailer.php';
 require 'inc/mail/src/SMTP.php';
 require_once("inc/modules/inc_global.php");
 require_once("inc/modules/inc_global_media.php");
-
+//Configuración de correo
 $from = returnSiteName();
 $server = "smtp.freesmtpservers.com";
-$usero = returnSiteName()."@shop.es" ;
+$usero = returnSiteName() . "@shop.es";
 $password = "nerja123";
 $encType = "tls";
+//
 
-function createMail($orderId, $mail, $name,$address)
+// Creo el mensaje con los datos del pedido.
+function createMail($orderId, $mail, $name, $address)
 {
     $subtotal = 0;
-    $mensaje = "<h2>Pedido nº$orderId </h2> <h3>Cliente: $name</h3>
+    $message = "<h2>Pedido nº$orderId </h2> <h3>Cliente: $name</h3>
                 <p>Dirección: $address</p>";
-    $mensaje .= "<style>
+    $message .= "<style>
     table, td, th {
         border: 2px solid black;
         border-collapse: collapse;
@@ -29,43 +31,43 @@ function createMail($orderId, $mail, $name,$address)
         background-color: silver;
     }
     </style>";
-    $mensaje .= "<h4><i>Usuario: $mail </i></h4>";
-    $mensaje .= "<i>Detalle del pedido</i>:";
-    $mensaje .= "<br><br>";
-    $mensaje .= "<table>
+    $message .= "<h4><i>Usuario: $mail </i></h4>";
+    $message .= "<i>Detalle del pedido</i>:";
+    $message .= "<br><br>";
+    $message .= "<table>
                     <tr>
                         <th>Nombre</th>
                         <th>Descripción</th>
-                        <th>Peso</th>
+                        <th>Precio</th>
                         <th>Unidades</th>
                         <th>Subtotal producto</th>
                     </tr>";
     //Cargo los datos de los productos con sus respectivas claves.
-    $productos = getProductsFromCart();
+    $products = getProductsFromCart();
     //Creo una row en la tabla para cada uno de ellos.
-    foreach ($productos as $producto) {
-        $nombre = $producto["var_product_name"];
-        $descripcion = $producto["var_product_description"];
-        $price = $producto["var_product_price"];
-        $unidades = getProductQuantity($producto["var_id"]);
-        $subtotal = getProductQuantity($producto["var_id"])*$producto["var_product_price"];
+    foreach ($products as $product) {
+        $name = $product["var_product_name"];
+        $description = $product["var_product_description"];
+        $price = $product["var_product_price"];
+        $units = getProductQuantity($product["var_id"]);
+        $subtotal = getProductQuantity($product["var_id"]) * $product["var_product_price"];
 
-        $mensaje .= "<tr>
-                        <td>$nombre</td>
-                        <td>$descripcion</td>
+        $message .= "<tr>
+                        <td>$name</td>
+                        <td>$description</td>
                         <td>$price €</td>
-                        <td>$unidades</td>
+                        <td>$units</td>
                         <td>$subtotal</td>
                     </tr>";
     }
-    $mensaje .= "</table>";
-    $mensaje .= "<br><br>";
-    $mensaje .= "<i>Monto total:".getSubtotal()." €</i>";
-    return $mensaje;
+    $message .= "</table>";
+    $message .= "<br><br>";
+    $message .= "<i>Monto total:" . getSubtotal() . " €</i>";
+    return $message;
 }
-function loadMailConf($server,$port,$user,$password,$encType,$useEnc)
+function loadMailConf($server, $port, $user, $password, $encType, $useEnc)
 {
-    
+
     //Almaceno en un array las conf. de correo.
     $conf = [
         "server" => $server,
@@ -85,7 +87,8 @@ function sendMail($conf, $mailDest, $nameDest, $msg, $subject)
     $mail->IsSMTP();
     $mail->CharSet = "UTF-8";
     // $mail->SMTPDebug = 2;
-    if($conf["useEnc"]){
+    //Si se ha configurado el uso de encriptación, dice cual usar
+    if ($conf["useEnc"]) {
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = $conf["enc"];
     }
@@ -94,7 +97,7 @@ function sendMail($conf, $mailDest, $nameDest, $msg, $subject)
     $mail->Username = $conf["user"];
     $mail->Password = $conf["password"];
     // $mail->Password = "amhwftxuqtjjmxyb";
-    $mail->SetFrom($conf["user"], returnSiteName()." - Pedidos");
+    $mail->SetFrom($conf["user"], returnSiteName() . " - Pedidos");
     $mail->Subject = $subject;
     $mail->MsgHTML($msg);
     $address = $mailDest;

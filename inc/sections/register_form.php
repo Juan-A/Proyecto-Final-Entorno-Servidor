@@ -1,3 +1,4 @@
+<!-- Formulario de registro de usuarios -->
 <main>
     <div class="authContainer">
         <form action="register.php" method="POST">
