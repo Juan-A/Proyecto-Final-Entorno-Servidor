@@ -53,11 +53,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </main>
     <? require_once("inc/sections/footer.php"); ?>
-    <script>
-        function loginSubmit(){
-            document.querySelector(".loginForm").submit();
-        }
-    </script>
 </body>
 
 </html>
