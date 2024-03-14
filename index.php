@@ -10,6 +10,7 @@ require_once("inc/modules/inc_global_media.php");
     <!-- este título se obtiene desde la base de datos -->
     <title><?=siteName()?></title>
     <link rel="stylesheet" href="inc/styles/main_style.css">
+    <link rel="stylesheet" href="inc/styles/landing_styles.css">
     <script defer src="inc/modules/site_identity/message_dissapear.js"></script>
 </head>
 <body>

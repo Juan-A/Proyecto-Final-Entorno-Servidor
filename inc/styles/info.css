@@ -1,0 +1,6 @@
+#hero {
+    background-image: url('../../uploads/banner/about-banner.svg')!important;
+}
+#hero .hero-content {
+    background-color: rgba(211, 100, 100, 0.7) !important;
+}
