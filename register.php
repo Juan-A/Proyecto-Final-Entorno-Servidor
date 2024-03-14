@@ -37,6 +37,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     <link rel="stylesheet" href="inc/styles/main_style.css">
     <link rel="stylesheet" href="inc/styles/auth_form_styles.css">
     <script defer src="inc/modules/auth/registerFunctions.js"></script>
+    <script defer src="inc/modules/site_identity/message_dissapear.js"></script>
 </head>
 
 <body>

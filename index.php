@@ -10,12 +10,16 @@ require_once("inc/modules/inc_global_media.php");
     <!-- este título se obtiene desde la base de datos -->
     <title><?=siteName()?></title>
     <link rel="stylesheet" href="inc/styles/main_style.css">
+    <script defer src="inc/modules/site_identity/message_dissapear.js"></script>
 </head>
 <body>
 <!-- Adding navbar -->
 <? require_once("inc/sections/nav_bar.php"); ?>
-<? require_once("inc/sections/index_page.php"); ?>
 <? handleMessage() ?>
+<? require_once("inc/sections/index_page.php"); ?>
+
 <? require_once("inc/sections/footer.php"); ?>
+
 </body>
+
 </html>

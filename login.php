@@ -23,6 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title><?= siteName() ?></title>
     <link rel="stylesheet" href="inc/styles/main_style.css">
     <link rel="stylesheet" href="inc/styles/auth_form_styles.css">
+    <script defer src="inc/modules/site_identity/message_dissapear.js"></script>
 </head>
 
 <body>

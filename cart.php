@@ -14,7 +14,8 @@ if(isset($_GET["delete"])){
     <title><?=siteName()?> - Carrito</title>
     <link rel="stylesheet" href="inc/styles/main_style.css">
     <link rel="stylesheet" href="inc/styles/cart_style.css">
-    <script src="inc/modules/store/js/inc_page_update.js"></script>
+    <script defer src="inc/modules/store/js/inc_page_update.js"></script>
+    <script defer src="inc/modules/site_identity/message_dissapear.js"></script>
 </head>
 <body>
 <!-- Adding navbar -->
