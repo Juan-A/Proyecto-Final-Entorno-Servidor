@@ -25,5 +25,6 @@ if(isset($_GET["cat"])){
 <? require_once("inc/sections/nav_bar.php"); ?>
 <? handleMessage() ?>
 <? require_once("inc/sections/store_main.php"); ?>
+<? require_once("inc/sections/footer.php"); ?>
 </body>
 </html>

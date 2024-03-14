@@ -32,5 +32,6 @@ if(isset($_GET["addToCart"])){
 <? require_once("inc/sections/nav_bar.php"); ?>
 <? handleMessage() ?>
 <? require_once("inc/sections/product_page.php"); ?>
+<? require_once("inc/sections/footer.php"); ?>
 </body>
 </html>

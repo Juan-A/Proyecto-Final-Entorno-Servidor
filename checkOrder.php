@@ -26,5 +26,6 @@ if(!isLogged()){
 <? require_once("inc/sections/nav_bar.php"); ?>
 <? handleMessage() ?>
 <? require_once("inc/sections/check_order.php"); ?>
+<? require_once("inc/sections/footer.php"); ?>
 </body>
 </html>

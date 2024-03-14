@@ -28,7 +28,7 @@
     <div class="product-name">
       <strong>Producto:</strong> <?=getProductQuantity($product["var_id"])?> x <?=$product["var_product_name"]?>
     </div>
-    <span class="price"><?=getProductQuantity($product["var_id"])*$product["var_product_price"]?></span>
+    <span class="price"><?=getProductQuantity($product["var_id"])*$product["var_product_price"]?> €</span>
   </li>
   <?
    }

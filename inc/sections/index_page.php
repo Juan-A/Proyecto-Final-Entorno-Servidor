@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <header>
@@ -33,12 +32,9 @@
     </section>
     
     <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Feel free to reach out to us for any inquiries or assistance.</p>
-        <a href="mailto:info@computerstore.com">info@computerstore.com</a>
+        <h2>La libertad de elegir</h2>
+        <p>Siéntete libre de preguntarnos por cualquier cosa, sin compromiso.</p>
+        <a href="mailto:info@dotservices.es">info@DotServices.es 📧</a>
     </section>
-    
-    <footer>
-        <p>&copy; <?php echo date("Y"); ?> DotServices. All rights reserved.</p>
-    </footer>
+
     </main>

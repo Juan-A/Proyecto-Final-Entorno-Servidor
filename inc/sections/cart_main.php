@@ -24,8 +24,8 @@
         <td><?=$product["var_product_name"]?></td>
         <td></td>
         <td><img src="<?=productImage($product)?>"></td>
-        <td><?=$product["var_product_price"]?></td>
-        <td><?=doubleval($product["var_product_price"])*$quantity?></td>
+        <td><?=$product["var_product_price"]?> €</td>
+        <td><?=doubleval($product["var_product_price"])*$quantity?> €</td>
 
         <td><form action="<?=$_SERVER["PHP_SELF"]?>">
         <input type="hidden" name="delete" value="<?=$key?>">

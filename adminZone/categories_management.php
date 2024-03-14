@@ -5,7 +5,7 @@ if (isset($_GET["deleteCategory"])) {
     try{
         deleteCategory($cat_id);
     }catch(Exception $e){
-        addMessage("Hubo un fallo al eliminar la categoria: <br> Debes eliminar todas las subcategorias correspondientes antes de continuar.", 1);
+        addMessage("Hubo un fallo al eliminar la categoria: <br> Debes eliminar todas las subcategorias correspondientes antes de continuar.".$e, 1);
     }
     
 }

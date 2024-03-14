@@ -15,6 +15,12 @@ require_once("inc/inc_admin_global.php");
 <!-- Adding navbar -->
 <? require_once("inc/sections/nav_bar.php"); ?>
 <? handleMessage() ?>
-<?// require_once("inc/sections/footer.php"); ?>
+<div class="admin-content" style="text-align: center;">
+    <h1>Bienvenido al panel de administración</h1>
+    <p>Productos totales: <?= getProductCount() ?></p>
+    <p>Categorias totales: <?= getCategoryCount() ?></p>
+    <p>Usuarios totales: <?= getUserCount() ?></p>
+    
+</div>
 </body>
 </html>

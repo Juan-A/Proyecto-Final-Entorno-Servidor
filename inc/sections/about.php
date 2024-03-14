@@ -37,8 +37,4 @@
         <a href="mailto:info@dotservices.es">info@DotServices.es 📧</a><br>
         <b>(Aunque te de más pereza, te dejamos nuestro correo por aquí 😊)</b>
     </section>
-    
-    <footer>
-        <p>&copy; <?php echo date("Y"); ?> DotServices. All rights reserved.</p>
-    </footer>
     </main>

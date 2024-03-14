@@ -22,3 +22,9 @@ function cleanUserRow($userRow){
     array_splice($userRow,2,1);
     return $userRow;
 }
+function getUserCount(){
+    $query = "SELECT COUNT(*) FROM db_users";
+    $preQuery = db()->prepare($query);
+    $preQuery->execute();
+    return $preQuery->fetchColumn();
+}

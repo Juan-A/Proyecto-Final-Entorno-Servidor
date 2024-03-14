@@ -12,7 +12,7 @@ function modifyProduct($input, $prodID)
     $preQuery->bindValue(":prod_img", $input[2], PDO::PARAM_STR);
     $preQuery->bindValue(":prod_price", $input[3], PDO::PARAM_STR);
     $preQuery->bindValue(":prod_vat", $input[4], PDO::PARAM_STR);
-    $preQuery->bindValue(":is_variant", $input[5], PDO::PARAM_INT);
+    $preQuery->bindValue(":is_variant", $input[5], PDO::PARAM_BOOL);
     $preQuery->bindValue(":prod_virtual", $input[7], PDO::PARAM_INT);
     $preQuery->bindValue(":prod_stock", $input[9], PDO::PARAM_INT);
 

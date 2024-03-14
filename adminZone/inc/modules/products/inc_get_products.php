@@ -17,7 +17,14 @@ function getProduct($prod_id)
         return $preQuery->fetch(PDO::FETCH_ASSOC);
     }
     return false;
-}/* 
+}
+function getProductCount(){
+    $query = "SELECT COUNT(*) FROM db_products";
+    $preQuery = db()->prepare($query);
+    $preQuery->execute();
+    return $preQuery->fetchColumn();
+}
+/* 
 function getCategoryName($cat_id)
 {
     $query = "SELECT var_category_name FROM db_shop_categories WHERE var_code = :cat_id";
@@ -74,7 +81,7 @@ function fillProductParentSelection($prod_id)
         }
     }
     if (!$thereIsParent) {
-        echo "<option selected value='null'>-Sin producto padre-</option>";
+        echo "<option selected value='-1'>-Sin producto padre-</option>";
     } else {
         echo "<option value='-1'>-Deshacer relación-</option>";
     }

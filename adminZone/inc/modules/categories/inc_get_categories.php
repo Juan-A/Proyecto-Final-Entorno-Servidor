@@ -19,6 +19,13 @@ function getCategory($cat_id)
     }
     return false;
 }
+function getCategoryCount()
+{
+    $query = "SELECT COUNT(*) FROM db_shop_categories";
+    $preQuery = db()->prepare($query);
+    $preQuery->execute();
+    return $preQuery->fetchColumn();
+}
 function getCategoryName($cat_id)
 {
     $query = "SELECT var_category_name FROM db_shop_categories WHERE var_code = :cat_id";
