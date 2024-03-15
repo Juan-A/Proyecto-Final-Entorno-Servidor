@@ -117,4 +117,4 @@ Puedes utilizar las siguientes credenciales para probar la web:
 ## Licencia
 
 Este proyecto está bajo la Licencia Pública General de GNU versión 3.0. Puedes encontrar una copia de la licencia en:
-- [https://www.gnu.org/licenses/gpl-3.0.en.html](https://www.gnu.org/licenses/gpl-3.0.en.html).
+- [https://www.gnu.org/licenses/gpl-3.0.en.html](https://www.gnu.org/licenses/gpl-3.0.en.html)
