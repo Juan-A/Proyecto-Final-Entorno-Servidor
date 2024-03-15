@@ -15,12 +15,12 @@ Si el password está vacío, no se modifica, uso diferente query.
 function modify($input, $usrID)
 {
     if ($input[1] == "") {
-        $query = "UPDATE proyecto.db_users
+        $query = "UPDATE db_users
         SET user_surname=:usr_surname,user_email=:mail,user_role=:usr_role,user_name=:usr_name,user_nickname=:nick WHERE user_id=:usr_id;
     ";
         $preQuery = db()->prepare($query);
     } else {
-        $query = "UPDATE proyecto.db_users
+        $query = "UPDATE db_users
         SET user_surname=:usr_surname,user_email=:mail,user_role=:usr_role,user_name=:usr_name,user_nickname=:nick,user_password=:pass WHERE user_id=:usr_id;
     ";
         $preQuery = db()->prepare($query);

@@ -14,9 +14,15 @@ $useEnc = false;
 
 
 try {
+    //Hacer el pedido
     $orderId = createOrder($_SESSION["user_id"], $_POST["address"], $_POST["mobile"], $_SESSION["user_email"]);
+
+    //Preparar el correo
     $mail = createMail($orderId, $_SESSION["user_email"], $_SESSION["user_name"] . " " . $_SESSION["user_surname"], $_POST["address"]);
+    
+    //Crear configuración de correo
     $confMail = loadMailConf($server, $port, $user, $password, $encType, $useEnc);
+    
     //Enviar correos
 
     //Enviar correo al usuario
