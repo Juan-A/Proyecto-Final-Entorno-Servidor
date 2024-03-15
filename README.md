@@ -112,7 +112,7 @@ http://localhost:8080
 ```
 Puedes utilizar las siguientes credenciales para probar la web:
 - **Usuario:** juanhcxd
-- **Contraseña:** nerja123
+- **Contraseña:** nerja123?!
 
 ## Licencia
 
