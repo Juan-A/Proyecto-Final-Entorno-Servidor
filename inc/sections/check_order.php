@@ -22,8 +22,10 @@
     <h1>Resumen del pedido</h1>
     <ul class="product-list">
       <?
+      $totalPrice = 0.0;
       $products = getProductsFromCart();
       foreach ($products as $product) {
+        $totalPrice += getProductQuantity($product["var_id"]) * $product["var_product_price"];
       ?>
         <li>
           <div class="product-name">
@@ -34,6 +36,12 @@
       <?
       }
       ?>
+      <li>
+        <div class="product-name">
+          <strong>Precio total:</strong>
+        </div>
+        <span> <?= $totalPrice ?> €</span>
+      </li>
     </ul>
 
 
