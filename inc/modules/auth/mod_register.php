@@ -11,12 +11,15 @@ Reibe en un array:
 [5] => Apellido
 */
 function register($input){
+    $lowerCaseMail = strtolower($input[0]);
+    $lowerCaseNick = strtolower($input[2]);
+
     $query = "INSERT INTO db_users (user_email,user_password,user_nickname,user_role,user_name,user_surname) 
     VALUES (:mail,:pass,:nick,:usr_role,:usr_name,:usr_surname);";
     $preQuery = db()->prepare($query);
-    $preQuery->bindParam(":mail",strtolower($input[0]));
+    $preQuery->bindParam(":mail",$lowerCaseMail);
     $preQuery->bindParam(":pass",$input[1]);
-    $preQuery->bindParam(":nick",strtolower($input[2]));
+    $preQuery->bindParam(":nick",$lowerCaseNick);
     $preQuery->bindParam(":usr_role",$input[3]);
     $preQuery->bindParam(":usr_name",$input[4]);
     $preQuery->bindParam(":usr_surname",$input[5]);

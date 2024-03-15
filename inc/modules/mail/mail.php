@@ -8,13 +8,6 @@ require 'inc/mail/src/PHPMailer.php';
 require 'inc/mail/src/SMTP.php';
 require_once("inc/modules/inc_global.php");
 require_once("inc/modules/inc_global_media.php");
-//Configuración de correo
-$from = returnSiteName();
-$server = "smtp.freesmtpservers.com";
-$usero = returnSiteName() . "@shop.es";
-$password = "nerja123";
-$encType = "tls";
-//
 
 // Creo el mensaje con los datos del pedido.
 function createMail($orderId, $mail, $name, $address)

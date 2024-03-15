@@ -25,20 +25,22 @@
             }
             //Mostrar todos los productos de la categoría seleccionada
             foreach ($allProducts as $key => $product) {
+                if ($product["var_product_stock"] > 0) {
             ?>
-                <div class="product-card">
-                    <a href="product.php?id=<?= $product["var_id"] ?>" class="product-link">
-                        <img src="<?= productImage($product) ?>" alt="<?= $product["var_product_name"] ?>" class="product-image">
-                        <h3 class="product-name"><?= $product["var_product_name"] ?></h3>
-                    </a>
-                    <p class="product-price"><?= $product["var_product_price"] ?>€</p>
-                    <form action="product.php" method="get">
-                        <input type="hidden" name="addToCart" value="<?= $product["var_id"] ?>">
-                        <button class="buy-button">Comprar</button>
-                    </form>
-                </div>
+                    <div class="product-card">
+                        <a href="product.php?id=<?= $product["var_id"] ?>" class="product-link">
+                            <img src="<?= productImage($product) ?>" alt="<?= $product["var_product_name"] ?>" class="product-image">
+                            <h3 class="product-name"><?= $product["var_product_name"] ?></h3>
+                        </a>
+                        <p class="product-price"><?= $product["var_product_price"] ?>€</p>
+                        <form action="product.php" method="get">
+                            <input type="hidden" name="addToCart" value="<?= $product["var_id"] ?>">
+                            <button class="buy-button">Comprar</button>
+                        </form>
+                    </div>
 
             <?
+                }
             }
             ?>
 

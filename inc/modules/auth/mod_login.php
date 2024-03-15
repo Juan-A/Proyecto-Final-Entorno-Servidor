@@ -2,13 +2,14 @@
 
 require_once("inc/modules/inc_global.php");
 
-//Funcion para loguear al usuario, recibe el password encriptado.
+//Funcion para loguear al usuario, recibe el password sin encriptar.
 function validateLogin($user, $password)
 {
+    $user = strtolower($user);
     $query = "SELECT user_id,user_nickname,user_email,user_role,user_name,user_surname,user_password FROM db_users WHERE user_nickname = :user OR user_email = :user";
 
     $preQuery = db()->prepare($query);
-    $preQuery->bindParam(":user", strtolower($user));
+    $preQuery->bindParam(":user", $user);
 
     if ($preQuery->execute() && $preQuery->rowCount() >= 1) {
         $userData = $preQuery->fetch();
