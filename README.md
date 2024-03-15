@@ -110,9 +110,9 @@ Para acceder a la web, abre un navegador y escribe la siguiente dirección:
 ```bash
 http://localhost:8080
 ```
-Puedes utilizar las siguientes credenciales para probar la web:
+Puedes utilizar las siguientes credenciales para probar la web localmente:
 - **Usuario:** juanhcxd
-- **Contraseña:** nerja123?!
+- **Contraseña:** nerja123
 
 ## Licencia
 
